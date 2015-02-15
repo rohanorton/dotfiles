@@ -123,11 +123,20 @@
 
 " }}}
 
-" Backups {{{
+" Backups & History {{{
 
-    set nobackup " Don't keep a backup before overwriting a file
-    set nowb " Don't backup file before overwriting
-    set noswapfile " Don't use a swap file
+    set nobackup      " Don't keep a backup before overwriting a file
+    set nowb          " Don't backup file before overwriting
+    set noswapfile    " Don't use a swap file
+
+    set history=3000  " set the history quite big
+    set viminfo^=%    " Remember info about open buffers on close
+
+    " Return to last edit position when opening files (You want this!)
+    autocmd BufReadPost *
+         \ if line("'\"") > 0 && line("'\"") <= line("$") |
+         \   exe "normal! g`\"" |
+         \ endif
 
 " }}}
 
@@ -163,7 +172,11 @@
 
 " Leader Key {{{
 
-  :nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+    " \ev to edit .vimrc
+    nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+
+    " \cd to change directory to cwd of buffer
+    map <leader>cd :cd %:p:h<cr>:pwd<cr> 
 
 " }}}
 
@@ -238,6 +251,11 @@
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+" }}}
+
+" Misc. {{{
+
 
 " }}}
 

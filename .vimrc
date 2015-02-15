@@ -12,48 +12,49 @@
 " Vundle {{{
 
     filetype off                                 " Necessary for Vundle setup
-    set rtp+=~/.vim/bundle/vundle/               " Set bundle directory
-    call vundle#rc()                             " Vundle setup
+    set rtp+=~/.vim/bundle/Vundle.vim               " Set bundle directory
+    call vundle#begin()                             " Vundle setup
 
     " Load plugins:
-    Bundle 'gmarik/vundle'                       " Plugin Manager
-    Bundle 'scrooloose/nerdtree'                 " File Manager
-    Bundle 'scrooloose/nerdcommenter'            " easy commenting for code
-    Bundle 'scrooloose/syntastic'                " Static Analysis
-    Bundle 'kien/ctrlp.vim'                      " Fuzzy File Finder
-    Bundle 'tpope/vim-fugitive'                  " GIT Specific tools
-    Bundle 'tpope/vim-repeat'                    " Enable '.' repeating with supported plugins
-    Bundle 'tpope/vim-surround'                  " Quoting/parenthesizing made simple
-    Bundle 'tpope/vim-speeddating'               " Iterate dates easily
-    Bundle 'tpope/vim-unimpaired'                " Tim Pope's bracket mappings
-    Bundle 'tpope/vim-abolish'                   " easily search for, substitute, and abbreviate multiple variants of a word
-    Bundle 'tpope/vim-commentary'                " comment and uncomment things
-    Bundle 'tpope/vim-eunuch'                    " Unix commands in vim
-    Bundle 'Raimondi/delimitMate'                " Go to the closing character / tag
-    Bundle 'lukaszb/vim-web-indent'              " Better js and html auto indent
-    Bundle 'hallison/vim-markdown'               " Markdown highlighting
-    Bundle 'kshenoy/vim-signature'               " show line marks
-    Bundle 'tristen/vim-sparkup'                 " Sparkup for vim HTML
-    Bundle 'gregsexton/MatchTag'                 " Highlights the matching HTML tag
-    Bundle 'mileszs/ack.vim'                     " Ack from vim
-    Bundle 'vim-scripts/ZoomWin'                 " Toggle zoom
-    Bundle 'vim-scripts/Gundo'                   " Visualize your undo true
-    Bundle 'myusuf3/numbers.vim'                 " Intelligently toggling line numbers.
-    Bundle 'mtth/scratch.vim'                    " Unobtrusive scratch window
-    Bundle 'Keithbsmiley/swift.vim'              " Vim runtime files for Swift
-    Bundle 'godlygeek/tabular'                   " Vim script for text filtering and alignment
-    Bundle 'SirVer/ultisnips'                    " Ultimate snippets solution for vim
-    Bundle 'honza/vim-snippets'                  " Some default snippets
-    Bundle 'aaronj1335/underscore-templates.vim' " Underscore syntax
-    Bundle 'flazz/vim-colorschemes'              " Huge collection of colourschemes
-    Bundle 'ap/vim-css-color'                    " Display CSS colours
-    Bundle 'maksimr/vim-jsbeautify'              " JS Beautify in vim
-    Bundle 'plasticboy/vim-markdown'             " Markdown syntax highlighting and matching rules
-    Bundle 'terryma/vim-multiple-cursors'        " Multiple selectors
-    Bundle 'avakhov/vim-yaml'                    " YAML syntax
-    Bundle 'vimoutliner/vimoutliner'             " Outlining
-    Bundle 'benmills/vimux'                      " Run tmux commands from vim
+    Plugin 'gmarik/Vundle.vim'                       " Plugin Manager
+    Plugin 'scrooloose/nerdtree'                 " File Manager
+    Plugin 'scrooloose/nerdcommenter'            " easy commenting for code
+    Plugin 'scrooloose/syntastic'                " Static Analysis
+    Plugin 'kien/ctrlp.vim'                      " Fuzzy File Finder
+    Plugin 'tpope/vim-fugitive'                  " GIT Specific tools
+    Plugin 'tpope/vim-repeat'                    " Enable '.' repeating with supported plugins
+    Plugin 'tpope/vim-surround'                  " Quoting/parenthesizing made simple
+    Plugin 'tpope/vim-speeddating'               " Iterate dates easily
+    Plugin 'tpope/vim-unimpaired'                " Tim Pope's bracket mappings
+    Plugin 'tpope/vim-abolish'                   " easily search for, substitute, and abbreviate multiple variants of a word
+    Plugin 'tpope/vim-commentary'                " comment and uncomment things
+    Plugin 'tpope/vim-eunuch'                    " Unix commands in vim
+    Plugin 'Raimondi/delimitMate'                " Go to the closing character / tag
+    Plugin 'lukaszb/vim-web-indent'              " Better js and html auto indent
+    Plugin 'hallison/vim-markdown'               " Markdown highlighting
+    Plugin 'kshenoy/vim-signature'               " show line marks
+    Plugin 'tristen/vim-sparkup'                 " Sparkup for vim HTML
+    Plugin 'gregsexton/MatchTag'                 " Highlights the matching HTML tag
+    Plugin 'mileszs/ack.vim'                     " Ack from vim
+    Plugin 'vim-scripts/ZoomWin'                 " Toggle zoom
+    Plugin 'vim-scripts/Gundo'                   " Visualize your undo true
+    Plugin 'myusuf3/numbers.vim'                 " Intelligently toggling line numbers.
+    Plugin 'mtth/scratch.vim'                    " Unobtrusive scratch window
+    Plugin 'Keithbsmiley/swift.vim'              " Vim runtime files for Swift
+    Plugin 'godlygeek/tabular'                   " Vim script for text filtering and alignment
+    Plugin 'SirVer/ultisnips'                    " Ultimate snippets solution for vim
+    Plugin 'honza/vim-snippets'                  " Some default snippets
+    Plugin 'aaronj1335/underscore-templates.vim' " Underscore syntax
+    Plugin 'flazz/vim-colorschemes'              " Huge collection of colourschemes
+    Plugin 'ap/vim-css-color'                    " Display CSS colours
+    Plugin 'maksimr/vim-jsbeautify'              " JS Beautify in vim
+    Plugin 'plasticboy/vim-markdown'             " Markdown syntax highlighting and matching rules
+    Plugin 'terryma/vim-multiple-cursors'        " Multiple selectors
+    Plugin 'avakhov/vim-yaml'                    " YAML syntax
+    Plugin 'vimoutliner/vimoutliner'             " Outlining
+    Plugin 'benmills/vimux'                      " Run tmux commands from vim
 
+    call vundle#end()                             " Vundle setup
     filetype on                                  " Finally, let's not forget to turn this back on
 
 " }}}

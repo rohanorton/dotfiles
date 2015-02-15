@@ -29,7 +29,6 @@
     Plugin 'tpope/vim-abolish'                   " easily search for, substitute, and abbreviate multiple variants of a word
     Plugin 'tpope/vim-commentary'                " comment and uncomment things
     Plugin 'tpope/vim-eunuch'                    " Unix commands in vim
-    Plugin 'Raimondi/delimitMate'                " Go to the closing character / tag
     Plugin 'lukaszb/vim-web-indent'              " Better js and html auto indent
     Plugin 'kshenoy/vim-signature'               " show line marks
     Plugin 'tristen/vim-sparkup'                 " Sparkup for vim HTML

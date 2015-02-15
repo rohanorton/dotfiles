@@ -31,7 +31,6 @@
     Plugin 'tpope/vim-eunuch'                    " Unix commands in vim
     Plugin 'Raimondi/delimitMate'                " Go to the closing character / tag
     Plugin 'lukaszb/vim-web-indent'              " Better js and html auto indent
-    Plugin 'hallison/vim-markdown'               " Markdown highlighting
     Plugin 'kshenoy/vim-signature'               " show line marks
     Plugin 'tristen/vim-sparkup'                 " Sparkup for vim HTML
     Plugin 'gregsexton/MatchTag'                 " Highlights the matching HTML tag
@@ -147,7 +146,6 @@
     nmap - <C-x>
 
     " Remaps for commonly mistyped commands:
-    :command! qw wq
     :command! W w
     :command! Q q
 

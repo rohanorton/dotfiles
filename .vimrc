@@ -47,7 +47,6 @@
     Plugin 'flazz/vim-colorschemes'              " Huge collection of colourschemes
     Plugin 'ap/vim-css-color'                    " Display CSS colours
     Plugin 'maksimr/vim-jsbeautify'              " JS Beautify in vim
-    Plugin 'plasticboy/vim-markdown'             " Markdown syntax highlighting and matching rules
     Plugin 'terryma/vim-multiple-cursors'        " Multiple selectors
     Plugin 'avakhov/vim-yaml'                    " YAML syntax
     Plugin 'vimoutliner/vimoutliner'             " Outlining

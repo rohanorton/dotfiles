@@ -16,7 +16,7 @@
     call vundle#begin()                             " Vundle setup
 
     " Load plugins:
-    Plugin 'gmarik/Vundle.vim'                       " Plugin Manager
+    Plugin 'gmarik/Vundle.vim'                   " Plugin Manager
     Plugin 'scrooloose/nerdtree'                 " File Manager
     Plugin 'scrooloose/nerdcommenter'            " easy commenting for code
     Plugin 'scrooloose/syntastic'                " Static Analysis
@@ -50,6 +50,8 @@
     Plugin 'avakhov/vim-yaml'                    " YAML syntax
     Plugin 'vimoutliner/vimoutliner'             " Outlining
     Plugin 'benmills/vimux'                      " Run tmux commands from vim
+    Plugin 'rust-lang/rust.vim'                      " Rust syntax highlighting and stuff
+    
 
     call vundle#end()                             " Vundle setup
     filetype on                                  " Finally, let's not forget to turn this back on
@@ -99,6 +101,13 @@
 " Mouse {{{
 
     set mouse=a                     " No, I'm not l33t, wevs
+
+    " fix not being able to select beyond col 222
+    if has("mouse_sgr")
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    end
 
 " }}}
 
@@ -157,7 +166,6 @@
     :command! Q q
 
     " Tab and Shift-Tab to indent in normal and insert mode
-    nmap <Tab> >> 
     nmap <S-Tab> << 
     imap <S-Tab> <ESC><<i
 
@@ -172,8 +180,26 @@
 
 " Leader Key {{{
 
+    " I have also started using a convention for leader key for vimux:
+    "    \<space>   - compiles and / or executes the current file
+    "    \t         - runs tests 
+    " These are filetype specific, so the mappings will be found in relevent
+    " ftplugin file.
+
+    " \wq to write quit (5 keystrokes to 3)
+    nnoremap <leader>wq :wq<CR>
+
+    " \q to quit
+    nnoremap <leader>q :q<CR>
+
+    " \w to write
+    nnoremap <leader>w :w<CR>
+
     " \ev to edit .vimrc
     nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+
+    " \sv to source .vimrc
+    nnoremap <leader>sv :source $MYVIMRC<CR>
 
     " \cd to change directory to cwd of buffer
     map <leader>cd :cd %:p:h<cr>:pwd<cr> 
@@ -211,6 +237,9 @@
     " yaml
     autocmd BufNewFile,BufRead Archfile   set filetype=yaml
 
+    " rust
+    autocmd BufNewFile,BufRead *.rst      set filetype=rust
+
 "}}}
 
 " Plugin - NERDTree {{{
@@ -244,13 +273,15 @@
 
 " Plugin - UltisSnip {{{
 
-    let g:UltiSnipsExpandTrigger = "<tab>"
-    let g:UltiSnipsListSnippets  = "<C-tab>"
+    let g:UltiSnipsExpandTrigger = "<Tab>"
     let g:UltiSnipsJumpForwardTrigger = "<C-j>"
     let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+    " \eu to edit ultisnips file
+    nnoremap <leader>eu :UltiSnipsEdit<CR>
 
 " }}}
 

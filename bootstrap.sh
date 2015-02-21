@@ -14,8 +14,6 @@ function doIt() {
 
     if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
         git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    else
-        cd ~/.vim/bundle/Vundle.vim && git pull
     fi
 
     vim +PluginInstall +qall

@@ -50,10 +50,10 @@
     Plugin 'avakhov/vim-yaml'                    " YAML syntax
     Plugin 'vimoutliner/vimoutliner'             " Outlining
     Plugin 'benmills/vimux'                      " Run tmux commands from vim
-    Plugin 'rust-lang/rust.vim'                      " Rust syntax highlighting and stuff
+    Plugin 'rust-lang/rust.vim'                  " Rust syntax highlighting and stuff
     
 
-    call vundle#end()                             " Vundle setup
+    call vundle#end()                            " Vundle setup
     filetype on                                  " Finally, let's not forget to turn this back on
 
 " }}}
@@ -75,7 +75,13 @@
     set background=dark             " Background colour brightness
     filetype plugin indent on       " Auto-indent code
     syntax enable                   " Syntax highlighting
-    colorscheme jellybeans
+
+    " the try/catch is to prevent error when first installing and the
+    " colorscheme doesn't exist
+    try
+        colorscheme jellybeans
+    catch /^Vim\%((\a\+)\)\=:E185/
+    endtry
 
 " }}}
 

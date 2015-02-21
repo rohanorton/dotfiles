@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# All credit for this bootstrap script goes to mathiasbynens:
+# based on mathiasbynens bootstrap script:
 # https://github.com/mathiasbynens/dotfiles
 
 cd "$(dirname "${BASH_SOURCE}")";
@@ -11,7 +11,13 @@ git submodule update;
 function doIt() {
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
         --exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
-    #source ~/.bash_profile;
+
+    if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
+        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    else
+        cd ~/.vim/bundle/Vundle.vim && git pull
+    fi
+
     vim +PluginInstall +qall
 }
 

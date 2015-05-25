@@ -3,16 +3,23 @@
 # based on mathiasbynens bootstrap script:
 # https://github.com/mathiasbynens/dotfiles
 
-cd "$(dirname "${BASH_SOURCE}")";
+PROJECT_ROOT="$(dirname "${BASH_SOURCE}")"
+DOTFILES_ROOT=$PROJECT_ROOT/dots
+cd "$DOTFILES_ROOT"
+DOTFILES_ROOT=`pwd` # ensures absolute path
+DOTS=`find "$DOTFILES_ROOT" ! -path "$DOTFILES_ROOT" -maxdepth 1`
 
 git pull origin master;
 git submodule update;
 
-function doIt() {
-    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-        --exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
+function link_dotfiles() {
+    for src in $DOTS 
+    do
+        dst="$HOME/$(basename "$src")"
+        ln -sf $src $dst
+    done
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
+    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
         git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     fi
 
@@ -20,12 +27,12 @@ function doIt() {
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-    doIt;
+    link_dotfiles;
 else
     read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
     echo "";
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        doIt;
+        link_dotfiles;
     fi;
 fi;
-unset doIt;
+unset link_dotfiles;

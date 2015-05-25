@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# based on mathiasbynens bootstrap script:
-# https://github.com/mathiasbynens/dotfiles
+set -e
 
 PROJECT_ROOT="$(dirname "${BASH_SOURCE}")"
 DOTFILES_ROOT=$PROJECT_ROOT/dots
@@ -16,10 +15,15 @@ function link_dotfiles() {
     for src in $DOTS 
     do
         dst="$HOME/$(basename "$src")"
+        if [ -d "$dst" ] && [ ! -L "$dst" ]; then
+            # if there already is a directory, and it isn't a symlink
+            # it needs to be removed before a symlink can be created
+            mv $dst $dst.bak
+        fi
         ln -sf $src $dst
     done
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
         git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     fi
 

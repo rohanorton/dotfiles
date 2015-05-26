@@ -64,6 +64,7 @@
     Plugin 'Valloric/YouCompleteMe'               " Syntax completion
     Plugin 'marijnh/tern_for_vim'                 " Javascript completion
     Plugin 'rodjek/vim-puppet'                    " Puppet highlighting etc
+    Plugin 'keith/tmux.vim'                       " Tmux conf syntax highlighting
 
     call vundle#end()                            " Vundle setup
     filetype on                                  " Finally, let's not forget to turn this back on

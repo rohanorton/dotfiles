@@ -27,10 +27,6 @@ function link_dotfiles() {
         fi
     done
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
-        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    fi
-
     vim +PluginInstall +qall
 
     # Extra steps in vim module installation...

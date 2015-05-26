@@ -54,9 +54,9 @@
     alias hg='history | grep'
 
     # Vim version of less :)
-    VLESS=$(find /usr/share/vim -name 'less.sh')
-    if [ ! -z $VLESS ]; then
-        alias less=$VLESS
+    VIM_LESS=$(find /usr/share/vim -name 'less.sh')
+    if [ ! -z $VIM_LESS ]; then
+        alias less=$VIM_LESS
     fi
 
 # }}}

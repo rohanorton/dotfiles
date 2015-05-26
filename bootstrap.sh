@@ -6,7 +6,7 @@ PROJECT_ROOT="$(dirname "${BASH_SOURCE}")"
 DOTFILES_ROOT=$PROJECT_ROOT/dots
 cd "$DOTFILES_ROOT"
 DOTFILES_ROOT=`pwd` # ensures absolute path
-DOTS=`find "$DOTFILES_ROOT" ! -path "$DOTFILES_ROOT" -maxdepth 1`
+DOTS=`find "$DOTFILES_ROOT" -maxdepth 1 ! -path "$DOTFILES_ROOT" `
 
 git pull origin master;
 git submodule update;

@@ -1,5 +1,30 @@
-export EDITOR=`which vim`
+command_exists () {
+    command -v "$1" >/dev/null;
+}
 
-if command -v brew >/dev/null; then
+is_linux () {
+    [[ $('uname') == 'Linux' ]];
+}
+
+is_osx () {
+    [[ $('uname') == 'Darwin' ]];
+}
+
+# PATHS
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+
+if command_exists brew; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 fi
+
+if command_exists cabal; then
+    export PATH=$HOME/.cabal/bin:$PATH
+fi
+
+# Ensure the correct version of vim is used
+export EDITOR=`command -v vim`
+export VISUAL=$EDITOR
+
+export PAGER='less'
+
+# vim:fdm=marker ft=zsh

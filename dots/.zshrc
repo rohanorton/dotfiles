@@ -1,16 +1,44 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# ============= #
+# Rohan's Zshrc #
+# ============= #
 
-plugins=(git vi-mode)
+source_existing() {
+    [ -f "$1" ] && source "$1";
+}
 
-# User configuration
+# exports should probably go early on (i.e. for things like paths)
+source_existing $HOME/.sh_exports
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH=$HOME/.cabal/bin:$PATH
+# Antigen Plugin Manager
+# source: https://github.com/zsh-users/antigen
+source_existing $HOME/.zsh/antigen/antigen.zsh
 
-source $ZSH/oh-my-zsh.sh
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# Eventually I will wean myself off using oh-my-zsh (I'm convinced it's a bit
+# bloated), but unfortunately there are a lot of plugins which rely on it..
+antigen use oh-my-zsh
 
-source $HOME/.sh_exports
-source $HOME/.sh_aliases
+antigen bundles <<EOBUNDLES
+
+    git
+    git-extras
+    zsh-users/zsh-completions src
+    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-syntax-highlighting
+    kennethreitz/autoenv
+    chrissicool/zsh-256color
+    colored-man
+    Tarrasch/zsh-bd
+    ssh-agent
+    bower
+    node
+    npm
+    tmux
+    extract
+
+EOBUNDLES
+
+antigen apply
+
+source_existing /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+source_existing $HOME/.sh_aliases

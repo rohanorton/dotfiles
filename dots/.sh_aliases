@@ -6,17 +6,18 @@
 
 # Compatibility: {{{
 
-    if [[ "$(uname)" == "Darwin" ]]; then
-        # htop requires root access on mac
-        alias htop='sudo htop' 
+    if is_osx; then
+        # htop requires root access on mac. It would probably be a good idea to
+        # add a rule to sudoers to prevent password being requested
+        alias htop='sudo htop'
     fi
 
-    if [[ "$(uname)" == "Linux" ]]; then
+    if is_linux; then
         # pbcopy and pbpaste for linux ...
-        if command -v xsel >/dev/null; then
+        if command_exists xsel; then
             alias pbcopy="xsel --clipboard --input"
             alias pbpaste="xsel --clipboard --output"
-        elif command -v xclip >/dev/null; then
+        elif command_exists xclip; then
             alias pbcopy='xclip -selection clipboard'
             alias pbpaste='xclip -selection clipboard -o'
         fi
@@ -31,8 +32,7 @@
     alias ..='cd ..'             # up one directory
     alias ...='cd ../..'         # up two directories
     alias ....='cd ../../..'     # up three directories
-    #alias ls='ls -FG' # List dir with pretty colours and symbols
-    alias ls='ls --color -F' # List dir with pretty colours and symbols
+    alias ls='ls --color -F'     # List dir with pretty colours and symbols
     alias ll='ls -lah'           # list long, hidden, human readable
     alias df='df -h'             # human readable df
     alias du='du -h'             # human readable du
@@ -102,4 +102,4 @@
 
 # }}}
 
-# vim:fdm=marker
+# vim:fdm=marker ft=zsh

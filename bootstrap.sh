@@ -20,7 +20,11 @@ function link_dotfiles() {
             # it needs to be removed before a symlink can be created
             mv $dst $dst.bak
         fi
-        ln -sf $src $dst
+        # if the directory still exists this means that it is already a symlink
+        # or something went wrong, so we shouldn't really try and add another.
+        if [ ! -d "$dst" ]; then
+            ln -sf $src $dst
+        fi
     done
 
     if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then

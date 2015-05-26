@@ -39,7 +39,8 @@
     Plugin 'kshenoy/vim-signature'                " show line marks
     Plugin 'tristen/vim-sparkup'                  " Sparkup for vim HTML
     Plugin 'gregsexton/MatchTag'                  " Highlights the matching HTML tag
-    Plugin 'mileszs/ack.vim'                      " Ack from vim
+    Plugin 'mileszs/ack.vim'                      " Ack for vim
+    Plugin 'rking/ag.vim'                         " Ag for vim
     Plugin 'vim-scripts/ZoomWin'                  " Toggle zoom
     Plugin 'vim-scripts/Gundo'                    " Visualize your undo true
     Plugin 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
@@ -229,11 +230,11 @@
 
     " \a to ag / ack / grep
     if executable('ag')
-        nnoremap <leader>a :Ag
+        nnoremap <leader>a :Ag<space>
     elseif executable('ack')
-        nnoremap <leader>a :Ack
+        nnoremap <leader>a :Ack<space>
     else
-        nnoremap <leader>a :grep
+        nnoremap <leader>a :grep<space>
     endif
 
     " \wq to write quit (5 keystrokes to 3)
@@ -303,7 +304,6 @@
     if executable('ag')
         set grepprg="ag --nogroup --nocolor --column"
         let g:ackprg = 'ag --nogroup --nocolor --column'
-        command -nargs=+ -complete=file -bar Ag silent! grep!  <args>|cwindow|redraw!
     elseif executable('ack')
         set grepprg="ack --nogroup --nocolor --column"
     endif

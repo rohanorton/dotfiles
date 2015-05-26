@@ -33,15 +33,21 @@ function link_dotfiles() {
 
     vim +PluginInstall +qall
 
+    # Extra steps in vim module installation...
+
+    BUNDLE=$HOME/.vim/bundle
+
+    YCM_DIR=$BUNDLE/YouCompleteMe
     # Only runs if not already compiled
-    if [ -d ~/.vim/bundle/YouCompleteMe ] && [ ! -f ~/.vim/bundle/YouCompleteMe/python/ycm/__init__.pyc ]; then
+    if [ -d "$YCM_DIR" ] && [ ! -f "$YCM_DIR/python/ycm/__init__.pyc" ]; then
         cd ~/.vim/bundle/YouCompleteMe
         # ubuntu may require python2.7-dev in order to build this
         ./install.sh --clang-completer
     fi
 
-    if [ -d ~/.vim/bundle/tern_for_vim ] && command -v npm >/dev/null; then
-        cd ~/.vim/bundle/tern_for_vim
+    TERN_DIR=$BUNDLE/tern_for_vim
+    if [ -d "$TERN_DIR" ] && command -v npm >/dev/null; then
+        cd $TERN_DIR
         npm install
     fi
 

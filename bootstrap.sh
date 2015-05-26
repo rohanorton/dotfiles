@@ -9,7 +9,7 @@ DOTFILES_ROOT=`pwd` # ensures absolute path
 DOTS=`find "$DOTFILES_ROOT" -maxdepth 1 ! -path "$DOTFILES_ROOT" `
 
 git pull origin master;
-git submodule update;
+git submodule update --init --recursive;
 
 function link_dotfiles() {
     for src in $DOTS

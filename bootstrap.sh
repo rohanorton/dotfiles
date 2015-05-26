@@ -32,6 +32,18 @@ function link_dotfiles() {
     fi
 
     vim +PluginInstall +qall
+
+    # Only runs if not already compiled
+    if [ -d ~/.vim/bundle/YouCompleteMe ] && [ ! -f ~/.vim/bundle/YouCompleteMe/python/ycm/__init__.pyc ]; then
+        cd ~/.vim/bundle/YouCompleteMe
+        ./install.sh --clang-completer
+    fi
+
+    if [ -d ~/.vim/bundle/tern_for_vim ] && command -v npm >/dev/null; then
+        cd ~/.vim/bundle/tern_for_vim
+        npm install
+    fi
+
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

@@ -227,8 +227,14 @@
     " These are filetype specific, so the mappings will be found in relevent
     " ftplugin file.
 
-    " \a to ack
-    nnoremap <leader>a :Ack
+    " \a to ag / ack / grep
+    if executable('ag')
+        nnoremap <leader>a :Ag
+    elseif executable('ack')
+        nnoremap <leader>a :Ack
+    else
+        nnoremap <leader>a :grep
+    endif
 
     " \wq to write quit (5 keystrokes to 3)
     nnoremap <leader>wq :wq<CR>
@@ -292,25 +298,41 @@
 
 "}}}
 
-" Plugin - Ack {{{
+" Grep / Ack / Ag {{{
 
-    let g:ackprg = 'ag --nogroup --nocolor --column' " use ag ... it's EVEN faster than ack!!
+    if executable('ag')
+        set grepprg="ag --nogroup --nocolor --column"
+        let g:ackprg = 'ag --nogroup --nocolor --column'
+        command -nargs=+ -complete=file -bar Ag silent! grep!  <args>|cwindow|redraw!
+    elseif executable('ack')
+        set grepprg="ack --nogroup --nocolor --column"
+    endif
+
 
 "}}}
 
 " Plugin - Ctr-P {{{
 
     " use ctrlp matcher plugin for speedier speedy speed
-    let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+    "let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-          \ --ignore .git
-          \ --ignore .svn
-          \ --ignore .hg
-          \ --ignore .DS_Store
-          \ --ignore "**/*.pyc"
-          \ --ignore node_modules
-          \ -g ""'
+    if executable('ag')
+        " Use ag in CtrlP for listing files. Lightning fast and respects
+        " .gitignore
+        let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+              \ --ignore .git
+              \ --ignore .svn
+              \ --ignore .hg
+              \ --ignore .DS_Store
+              \ --ignore "**/*.pyc"
+              \ --ignore node_modules
+              \ -g ""'
+
+        " ag is fast enough that CtrlP doesn't need to cache
+        let g:ctrlp_use_caching = 0
+    endif
+
+
 
 " }}}
 

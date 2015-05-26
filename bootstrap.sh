@@ -12,7 +12,7 @@ git pull origin master;
 git submodule update;
 
 function link_dotfiles() {
-    for src in $DOTS 
+    for src in $DOTS
     do
         dst="$HOME/$(basename "$src")"
         if [ -d "$dst" ] && [ ! -L "$dst" ]; then
@@ -36,6 +36,7 @@ function link_dotfiles() {
     # Only runs if not already compiled
     if [ -d ~/.vim/bundle/YouCompleteMe ] && [ ! -f ~/.vim/bundle/YouCompleteMe/python/ycm/__init__.pyc ]; then
         cd ~/.vim/bundle/YouCompleteMe
+        # ubuntu may require python2.7-dev in order to build this
         ./install.sh --clang-completer
     fi
 

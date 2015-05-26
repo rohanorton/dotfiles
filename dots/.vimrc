@@ -442,7 +442,7 @@
 
         " Strip trailing whitespace ... may not want this on all files, but it
         " is for now
-        "autocmd BufWritePre * :%s/\s\+$//e
+        autocmd BufWritePre * :%s/\s\+$//e|norm!``
     endif
 
     set timeoutlen=200

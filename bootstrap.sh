@@ -47,12 +47,13 @@ function link_dotfiles() {
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-    link_dotfiles;
+    link_dotfiles
 else
-    read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-    echo "";
+    read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+    echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        link_dotfiles;
-    fi;
-fi;
+        link_dotfiles
+    fi
+fi
+
 unset link_dotfiles;

@@ -68,6 +68,12 @@
 
 # }}}
 
+# Vim: {{{
+
+    alias vundle-update='vim +PluginInstall +qall'
+
+#}}}
+
 # Git: {{{
 
     alias g='git'

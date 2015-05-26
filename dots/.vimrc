@@ -314,7 +314,7 @@
 " Plugin - Ctr-P {{{
 
     " use ctrlp matcher plugin for speedier speedy speed
-    "let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
+    let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 
     if executable('ag')
         " Use ag in CtrlP for listing files. Lightning fast and respects

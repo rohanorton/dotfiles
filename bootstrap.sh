@@ -51,6 +51,11 @@ function link_dotfiles() {
         npm install
     fi
 
+    CMATCHER_DIR=$BUNDLE/ctrlp-cmatcher
+    if [ -d "$CMATCHER_DIR" ]; then
+        cd $CMATCHER_DIR
+        ./install.sh
+    fi
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

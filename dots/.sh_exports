@@ -1,1 +1,36 @@
-export EDITOR=`which vim`
+command_exists () {
+    command -v "$1" >/dev/null;
+}
+
+is_linux () {
+    [[ $('uname') == 'Linux' ]];
+}
+
+is_osx () {
+    [[ $('uname') == 'Darwin' ]];
+}
+
+# PATHS
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+
+if command_exists brew; then
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+fi
+
+if command_exists cabal; then
+    export PATH=$HOME/.cabal/bin:$PATH
+fi
+
+# Ensure the correct version of vim is used
+export EDITOR=`command -v vim`
+export VISUAL=$EDITOR
+# Git commits should *always* start on line 1.
+# I use a command in my vimrc which starts files from the last line they were
+# on, but this conflicts with git commit files because you *always* want to
+# start on line 1.  I tried setting this in my vimrc and ftplugins, but in the
+# end it seemed simpler to set the behaviour from here:
+export GIT_EDITOR="$EDITOR +1"
+
+export PAGER='less'
+
+# vim:fdm=marker ft=zsh

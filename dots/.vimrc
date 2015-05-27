@@ -39,7 +39,8 @@
     Plugin 'kshenoy/vim-signature'                " show line marks
     Plugin 'tristen/vim-sparkup'                  " Sparkup for vim HTML
     Plugin 'gregsexton/MatchTag'                  " Highlights the matching HTML tag
-    Plugin 'mileszs/ack.vim'                      " Ack from vim
+    Plugin 'mileszs/ack.vim'                      " Ack for vim
+    Plugin 'rking/ag.vim'                         " Ag for vim
     Plugin 'vim-scripts/ZoomWin'                  " Toggle zoom
     Plugin 'vim-scripts/Gundo'                    " Visualize your undo true
     Plugin 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
@@ -63,6 +64,7 @@
     Plugin 'Valloric/YouCompleteMe'               " Syntax completion
     Plugin 'marijnh/tern_for_vim'                 " Javascript completion
     Plugin 'rodjek/vim-puppet'                    " Puppet highlighting etc
+    Plugin 'keith/tmux.vim'                       " Tmux conf syntax highlighting
 
     call vundle#end()                            " Vundle setup
     filetype on                                  " Finally, let's not forget to turn this back on
@@ -113,9 +115,16 @@
     set number         " Line numbers
     set cursorline     " Highlight current line
     hi cursorline cterm=none term=none
-    autocmd WinEnter * setlocal cursorline      " Turn cursorline on when entering window
-    autocmd WinLeave * setlocal nocursorline    " Turn cursorline off when leaving window
     highlight CursorLine guibg=#303000 ctermbg=234
+
+    if has("autocmd")
+        augroup reset_cursorline
+            " clear group
+            autocmd!
+            autocmd WinEnter * setlocal cursorline      " Turn cursorline on when entering window
+            autocmd WinLeave * setlocal nocursorline    " Turn cursorline off when leaving window
+        augroup END
+    endif
 
 " }}}
 
@@ -166,11 +175,17 @@
     set undolevels=2000  " set the undo levels to be big
     set viminfo^=%       " Remember info about open buffers on close
 
-    " Return to last edit position when opening files (You want this!)
-    autocmd BufReadPost *
-         \ if line("'\"") > 0 && line("'\"") <= line("$") |
-         \   exe "normal! g`\"" |
-         \ endif
+    if has("autocmd")
+        augroup goto_last_editing_position
+            " clear group
+            autocmd!
+            " Return to last edit position when opening files (You want this!)
+            autocmd BufReadPost *
+                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                 \   exe "normal! g`\"" |
+                 \ endif
+         augroup END
+     endif
 
 " }}}
 
@@ -229,11 +244,11 @@
 
     " \a to ag / ack / grep
     if executable('ag')
-        nnoremap <leader>a :Ag
+        nnoremap <leader>a :Ag<space>
     elseif executable('ack')
-        nnoremap <leader>a :Ack
+        nnoremap <leader>a :Ack<space>
     else
-        nnoremap <leader>a :grep
+        nnoremap <leader>a :grep<space>
     endif
 
     " \wq to write quit (5 keystrokes to 3)
@@ -271,30 +286,41 @@
     set t_Co=256                  " Set terminal colour to 256
     set term=xterm-256color       " Type of terminal used
     set termencoding=utf-8        " Always UTF-8
-    set shell=/usr/local/bin/zsh  " set the shell to use
+    if (executable('zsh'))
+        set shell=zsh  " set the shell to use
+    else
+        set shell=bash
+    endif
 
 " }}}
 
 " Filetypes {{{
 
-    autocmd BufNewFile,BufRead *.md        set filetype=markdown
+    if has("autocmd")
+        augroup set_filetypes
+            " clear group
+            autocmd!
 
-    " html style templates
-    autocmd BufNewFile,BufRead *.tl        set filetype=html
-    autocmd BufNewFile,BufRead *.tpl       set filetype=html
-    autocmd BufNewFile,BufRead *.dust      set filetype=html
+            autocmd BufNewFile,BufRead *.md        set filetype=markdown
 
-    " change syntax of templates...
-    autocmd BufNewFile,BufRead *.tpl.html  set syntax=underscore_template
+            " html style templates
+            autocmd BufNewFile,BufRead *.tl        set filetype=html
+            autocmd BufNewFile,BufRead *.tpl       set filetype=html
+            autocmd BufNewFile,BufRead *.dust      set filetype=html
 
-    " yaml
-    autocmd BufNewFile,BufRead Archfile    set filetype=yaml
+            " change syntax of templates...
+            autocmd BufNewFile,BufRead *.tpl.html  set syntax=underscore_template
 
-    " rust
-    autocmd BufNewFile,BufRead *.rst       set filetype=rust
+            " yaml
+            autocmd BufNewFile,BufRead Archfile    set filetype=yaml
 
-    " vspec
-    autocmd BufNewFile,BufRead */t/*.vim    set filetype=vspec.vim
+            " rust
+            autocmd BufNewFile,BufRead *.rst       set filetype=rust
+
+            " vspec
+            autocmd BufNewFile,BufRead */t/*.vim    set filetype=vspec.vim
+        augroup END
+    endif
 
 "}}}
 
@@ -303,7 +329,6 @@
     if executable('ag')
         set grepprg="ag --nogroup --nocolor --column"
         let g:ackprg = 'ag --nogroup --nocolor --column'
-        command -nargs=+ -complete=file -bar Ag silent! grep!  <args>|cwindow|redraw!
     elseif executable('ack')
         set grepprg="ack --nogroup --nocolor --column"
     endif
@@ -319,10 +344,15 @@
     " show dotfiles
     let g:ctrlp_show_hidden = 1
 
+    " follow symlinks (ignore loops)
+    let g:ctrlp_follow_symlinks = 1
+
     if executable('ag')
         " Use ag in CtrlP for listing files. Lightning fast and respects
         " .gitignore
         let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+              \ --ignore "*_bak"
+              \ --ignore "*.bak"
               \ --ignore .git
               \ --ignore .svn
               \ --ignore .hg
@@ -381,17 +411,21 @@
 " Plugin - NERDTree {{{
 
     "nmap <leader>e :NERDTreeToggle<CR>
-    "autocmd VimEnter * NERDTree     " Open by default
-
-    "" Close if only one buffer left open:
-    "autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 
     "" Ignore uses regexp, optional [[file]] or [[dir]]:
     "let NERDTreeIgnore=[]
 
     "let NERDTreeAutoDeleteBuffer=1
-
-    "autocmd VimEnter * wincmd p     " Have NERDTree open as background split
+    if has("autocmd")
+        augroup nerd_tree_setup
+            autocmd!
+            "autocmd VimEnter * NERDTree     " Open by default
+            "" Close if only one buffer left open:
+            "autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+            "" Have NERDTree open as background split
+            "autocmd VimEnter * wincmd p
+        augroup END
+    endif
 
 " }}}
 
@@ -440,12 +474,25 @@
 " Misc. {{{
 
     if has("autocmd")
-        " Source the vimrc file after saving it
-        autocmd bufwritepost .vimrc source $MYVIMRC
+        augroup source_vimrc
+            " clear group
+            autocmd!
+            " Source the vimrc file after saving it
+            autocmd bufwritepost .vimrc source $MYVIMRC
+        augroup END
 
         " Strip trailing whitespace ... may not want this on all files, but it
         " is for now
-        autocmd BufWritePre * :%s/\s\+$//e|norm!``
+        augroup remove_whitespace
+            " clear group
+            autocmd!
+            " set mark to jump back to after substitution
+            autocmd BufWritePre * :execute "norm!ms"
+            " substitute whitespace, and jump back to s mark
+            autocmd BufWritePre * :%s/\s\+$//e|norm!`s
+            " clean up mark
+            autocmd BufWritePre * :delmarks s
+        augroup END
     endif
 
     set timeoutlen=200

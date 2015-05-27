@@ -9,7 +9,7 @@ DOTFILES_ROOT=`pwd` # ensures absolute path
 DOTS=`find "$DOTFILES_ROOT" -maxdepth 1 ! -path "$DOTFILES_ROOT" `
 
 git pull origin master;
-git submodule update;
+git submodule update --init --recursive;
 
 function link_dotfiles() {
     for src in $DOTS
@@ -27,17 +27,13 @@ function link_dotfiles() {
         fi
     done
 
-    if [ ! -d ~/.vim/bundle/Vundle.vim/.git ]; then
-        git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    fi
-
     vim +PluginInstall +qall
 
     # Extra steps in vim module installation...
 
-    BUNDLE=$HOME/.vim/bundle
+    VIM_BUNDLE_DIR=$HOME/.vim/bundle
 
-    YCM_DIR=$BUNDLE/YouCompleteMe
+    YCM_DIR=$VIM_BUNDLE_DIR/YouCompleteMe
     # Only runs if not already compiled
     if [ -d "$YCM_DIR" ] && [ ! -f "$YCM_DIR/python/ycm/__init__.pyc" ]; then
         cd ~/.vim/bundle/YouCompleteMe
@@ -45,13 +41,13 @@ function link_dotfiles() {
         ./install.sh --clang-completer
     fi
 
-    TERN_DIR=$BUNDLE/tern_for_vim
+    TERN_DIR=$VIM_BUNDLE_DIR/tern_for_vim
     if [ -d "$TERN_DIR" ] && command -v npm >/dev/null; then
         cd $TERN_DIR
         npm install
     fi
 
-    CMATCHER_DIR=$BUNDLE/ctrlp-cmatcher
+    CMATCHER_DIR=$VIM_BUNDLE_DIR/ctrlp-cmatcher
     if [ -d "$CMATCHER_DIR" ]; then
         cd $CMATCHER_DIR
         ./install.sh

@@ -115,9 +115,16 @@
     set number         " Line numbers
     set cursorline     " Highlight current line
     hi cursorline cterm=none term=none
-    autocmd WinEnter * setlocal cursorline      " Turn cursorline on when entering window
-    autocmd WinLeave * setlocal nocursorline    " Turn cursorline off when leaving window
     highlight CursorLine guibg=#303000 ctermbg=234
+
+    if has("autocmd")
+        augroup reset_cursorline
+            " clear group
+            autocmd!
+            autocmd WinEnter * setlocal cursorline      " Turn cursorline on when entering window
+            autocmd WinLeave * setlocal nocursorline    " Turn cursorline off when leaving window
+        augroup END
+    endif
 
 " }}}
 
@@ -168,11 +175,17 @@
     set undolevels=2000  " set the undo levels to be big
     set viminfo^=%       " Remember info about open buffers on close
 
-    " Return to last edit position when opening files (You want this!)
-    autocmd BufReadPost *
-         \ if line("'\"") > 0 && line("'\"") <= line("$") |
-         \   exe "normal! g`\"" |
-         \ endif
+    if has("autocmd")
+        augroup goto_last_editing_position
+            " clear group
+            autocmd!
+            " Return to last edit position when opening files (You want this!)
+            autocmd BufReadPost *
+                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                 \   exe "normal! g`\"" |
+                 \ endif
+         augroup END
+     endif
 
 " }}}
 
@@ -279,24 +292,31 @@
 
 " Filetypes {{{
 
-    autocmd BufNewFile,BufRead *.md        set filetype=markdown
+    if has("autocmd")
+        augroup set_filetypes
+            " clear group
+            autocmd!
 
-    " html style templates
-    autocmd BufNewFile,BufRead *.tl        set filetype=html
-    autocmd BufNewFile,BufRead *.tpl       set filetype=html
-    autocmd BufNewFile,BufRead *.dust      set filetype=html
+            autocmd BufNewFile,BufRead *.md        set filetype=markdown
 
-    " change syntax of templates...
-    autocmd BufNewFile,BufRead *.tpl.html  set syntax=underscore_template
+            " html style templates
+            autocmd BufNewFile,BufRead *.tl        set filetype=html
+            autocmd BufNewFile,BufRead *.tpl       set filetype=html
+            autocmd BufNewFile,BufRead *.dust      set filetype=html
 
-    " yaml
-    autocmd BufNewFile,BufRead Archfile    set filetype=yaml
+            " change syntax of templates...
+            autocmd BufNewFile,BufRead *.tpl.html  set syntax=underscore_template
 
-    " rust
-    autocmd BufNewFile,BufRead *.rst       set filetype=rust
+            " yaml
+            autocmd BufNewFile,BufRead Archfile    set filetype=yaml
 
-    " vspec
-    autocmd BufNewFile,BufRead */t/*.vim    set filetype=vspec.vim
+            " rust
+            autocmd BufNewFile,BufRead *.rst       set filetype=rust
+
+            " vspec
+            autocmd BufNewFile,BufRead */t/*.vim    set filetype=vspec.vim
+        augroup END
+    endif
 
 "}}}
 
@@ -384,17 +404,21 @@
 " Plugin - NERDTree {{{
 
     "nmap <leader>e :NERDTreeToggle<CR>
-    "autocmd VimEnter * NERDTree     " Open by default
-
-    "" Close if only one buffer left open:
-    "autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 
     "" Ignore uses regexp, optional [[file]] or [[dir]]:
     "let NERDTreeIgnore=[]
 
     "let NERDTreeAutoDeleteBuffer=1
-
-    "autocmd VimEnter * wincmd p     " Have NERDTree open as background split
+    if has("autocmd")
+        augroup nerd_tree_setup
+            autocmd!
+            "autocmd VimEnter * NERDTree     " Open by default
+            "" Close if only one buffer left open:
+            "autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+            "" Have NERDTree open as background split
+            "autocmd VimEnter * wincmd p
+        augroup END
+    endif
 
 " }}}
 
@@ -443,12 +467,25 @@
 " Misc. {{{
 
     if has("autocmd")
-        " Source the vimrc file after saving it
-        autocmd bufwritepost .vimrc source $MYVIMRC
+        augroup source_vimrc
+            " clear group
+            autocmd!
+            " Source the vimrc file after saving it
+            autocmd bufwritepost .vimrc source $MYVIMRC
+        augroup END
 
         " Strip trailing whitespace ... may not want this on all files, but it
         " is for now
-        autocmd BufWritePre * :%s/\s\+$//e|norm!``
+        augroup remove_whitespace
+            " clear group
+            autocmd!
+            " set mark to jump back to after substitution
+            autocmd BufWritePre * :execute "norm!ms"
+            " substitute whitespace, and jump back to s mark
+            autocmd BufWritePre * :%s/\s\+$//e|norm!`s
+            " clean up mark
+            autocmd BufWritePre * :delmarks s
+        augroup END
     endif
 
     set timeoutlen=200

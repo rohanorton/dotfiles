@@ -317,10 +317,15 @@
     " use ctrlp matcher plugin for speedier speedy speed
     let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 
+    " follow symlinks (ignore loops)
+    let g:ctrlp_follow_symlinks = 1
+
     if executable('ag')
         " Use ag in CtrlP for listing files. Lightning fast and respects
         " .gitignore
         let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+              \ --ignore "*_bak"
+              \ --ignore "*.bak"
               \ --ignore .git
               \ --ignore .svn
               \ --ignore .hg

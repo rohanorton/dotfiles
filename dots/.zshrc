@@ -34,10 +34,18 @@ antigen bundles <<EOBUNDLES
     npm
     tmux
     extract
+    vi-mode
 
 EOBUNDLES
 
 antigen apply
+
+# Vim Keybindings
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd 'k' up-line-or-search
+bindkey -M vicmd 'j' down-line-or-search
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 source_existing /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 

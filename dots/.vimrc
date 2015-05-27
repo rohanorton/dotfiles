@@ -286,7 +286,11 @@
     set t_Co=256                  " Set terminal colour to 256
     set term=xterm-256color       " Type of terminal used
     set termencoding=utf-8        " Always UTF-8
-    set shell=/usr/local/bin/zsh  " set the shell to use
+    if (executable('zsh'))
+        set shell=zsh  " set the shell to use
+    else
+        set shell=bash
+    endif
 
 " }}}
 

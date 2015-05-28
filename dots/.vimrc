@@ -341,6 +341,9 @@
     " use ctrlp matcher plugin for speedier speedy speed
     let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 
+    " show dotfiles
+    let g:ctrlp_show_hidden = 1
+
     " follow symlinks (ignore loops)
     let g:ctrlp_follow_symlinks = 1
 

@@ -11,10 +11,10 @@ is_osx () {
 }
 
 # PATHS
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 if command_exists brew; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 
 if command_exists cabal; then

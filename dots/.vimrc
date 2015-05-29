@@ -61,6 +61,7 @@
     Plug 'Keithbsmiley/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
     Plug 'rust-lang/rust.vim', {'for': 'rust'}  " Rust syntax highlighting and stuff
     Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
+    Plug 'moll/vim-node'                        " Adds support for `gf` inside require('...') amongst other things
     Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
     Plug 'lukaszb/vim-web-indent', {'for': ['html','javascript']} " Better js and html auto indent
     Plug 'tristen/vim-sparkup', {'for': ['html']} " Sparkup for vim HTML

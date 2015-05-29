@@ -1,48 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-function command_exists () {
-    command -v "$1" >/dev/null;
-}
-function is_linux() {
-    [[ $('uname') == 'Linux' ]];
-}
-
-function is_osx () {
-    [[ $('uname') == 'Darwin' ]];
-}
-
-function install_ycm() {
-    VIM_BUNDLE_DIR=$HOME/.vim/bundle
-
-    if is_linux; then
-        YMC_INSTALL_SUGGESTION="Some linux distros require python2.7-dev in order to build this"
-    fi
-
-    YCM_DIR=$VIM_BUNDLE_DIR/YouCompleteMe
-    # Only runs if not already compiled
-    if [ -d "$YCM_DIR" ] && [ ! -f "$YCM_DIR/python/ycm/__init__.pyc" ]; then
-        cd $YCM_DIR
-        ./install.sh --clang-completer || echo $YMC_INSTALL_SUGGESTION && exit 1
-    fi
-}
-
-function install_tern_for_vim() {
-    TERN_DIR=$VIM_BUNDLE_DIR/tern_for_vim
-    if [ -d "$TERN_DIR" ] && command_exists npm; then
-        cd $TERN_DIR
-        npm install
-    fi
-}
-
-function install_ctrlp_cmatcher() {
-    CMATCHER_DIR=$VIM_BUNDLE_DIR/ctrlp-cmatcher
-    if [ -d "$CMATCHER_DIR" ]; then
-        cd $CMATCHER_DIR
-        ./install.sh
-    fi
-}
-
 function link_dotfiles() {
     PROJECT_ROOT="$(dirname "${BASH_SOURCE}")"
     DOTFILES_ROOT=$PROJECT_ROOT/dots
@@ -64,12 +22,9 @@ function link_dotfiles() {
         fi
     done
 
-    vim +PluginInstall +qall
-
-    # Extra steps in vim module installation...
-    install_ycm
-    install_tern_for_vim
-    install_ctrlp_cmatcher
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    vim +PlugInstall +qall
 }
 
 
@@ -87,6 +42,3 @@ else
 fi
 
 unset link_dotfiles;
-unset install_ycm;
-unset install_tern_for_vim;
-unset install_ctrlp_cmatcher;

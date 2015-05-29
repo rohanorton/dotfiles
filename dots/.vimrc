@@ -10,64 +10,67 @@
 
 " }}}
 
-" Vundle {{{
+" Plugins {{{
 
-    filetype off                                  " Necessary for Vundle setup
-    set rtp+=~/.vim/bundle/Vundle.vim             " Set bundle directory
-    call vundle#begin()                           " Vundle setup
+    function! BuildYCM(info)
+        " If the ycm_support_libs library APIs have changed (happens rarely),
+        " YCM will notify you to recompile it.
+        if a:info.status == 'installed' || a:info.force
+            !./install.sh --clang-completer
+        endif
+    endfunction
 
-    " Load plugins:
-    Plugin 'gmarik/Vundle.vim'                    " Plugin Manager
-    Plugin 'kien/ctrlp.vim'                       " Fuzzy File Finder
-    Plugin 'JazzCore/ctrlp-cmatcher'              " Speed up CtrlP
-    Plugin 'scrooloose/syntastic'                 " Static Analysis
-    Plugin 'scrooloose/nerdcommenter'             " easy commenting for code
-    "Plugin 'scrooloose/nerdtree'                  " File Manager
-    Plugin 'tpope/vim-fugitive'                   " GIT Specific tools
-    Plugin 'tpope/vim-sleuth'                     " Work out indentation rules on the fly
-    Plugin 'tpope/vim-vinegar'                    " File Manager
-    Plugin 'tpope/vim-repeat'                     " Enable '.' repeating with supported plugins
-    Plugin 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
-    Plugin 'tpope/vim-speeddating'                " Iterate dates easily
-    Plugin 'tpope/vim-unimpaired'                 " Tim Pope's bracket mappings
-    Plugin 'tpope/vim-abolish'                    " easily search for, substitute, and abbreviate multiple variants of a word
-    Plugin 'tpope/vim-commentary'                 " comment and uncomment things
-    Plugin 'tpope/vim-eunuch'                     " Unix commands in vim
-    Plugin 'tpope/vim-rails'                      " Rails for vim
-    Plugin 'tpope/vim-bundler'                    " For Rails... you don't strictly need bundler, but it helps
-    Plugin 'lukaszb/vim-web-indent'               " Better js and html auto indent
-    Plugin 'kshenoy/vim-signature'                " show line marks
-    Plugin 'tristen/vim-sparkup'                  " Sparkup for vim HTML
-    Plugin 'gregsexton/MatchTag'                  " Highlights the matching HTML tag
-    Plugin 'mileszs/ack.vim'                      " Ack for vim
-    Plugin 'rking/ag.vim'                         " Ag for vim
-    Plugin 'vim-scripts/ZoomWin'                  " Toggle zoom
-    Plugin 'vim-scripts/Gundo'                    " Visualize your undo true
-    Plugin 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
-    Plugin 'mtth/scratch.vim'                     " Unobtrusive scratch window
-    Plugin 'Keithbsmiley/swift.vim'               " Vim runtime files for Swift
-    Plugin 'godlygeek/tabular'                    " Vim script for text filtering and alignment
-    Plugin 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
-    Plugin 'honza/vim-snippets'                   " Some default snippets
-    Plugin 'aaronj1335/underscore-templates.vim'  " Underscore syntax
-    Plugin 'flazz/vim-colorschemes'               " Huge collection of colourschemes
-    Plugin 'ap/vim-css-color'                     " Display CSS colours
-    Plugin 'maksimr/vim-jsbeautify'               " JS Beautify in vim
-    Plugin 'terryma/vim-multiple-cursors'         " Multiple selectors
-    Plugin 'avakhov/vim-yaml'                     " YAML syntax
-    Plugin 'vimoutliner/vimoutliner'              " Outlining
-    Plugin 'benmills/vimux'                       " Run tmux commands from vim
-    Plugin 'kana/vim-vspec'                       " Vspec vim testing tools
-    Plugin 'rust-lang/rust.vim'                   " Rust syntax highlighting and stuff
-    Plugin 'takac/vim-hardtime'                   " Makes using hjkl and arrow harder (1 second pause)
-    Plugin 'nelstrom/vim-markdown-folding'        " Fold markdown on section headings
-    Plugin 'Valloric/YouCompleteMe'               " Syntax completion
-    Plugin 'marijnh/tern_for_vim'                 " Javascript completion
-    Plugin 'rodjek/vim-puppet'                    " Puppet highlighting etc
-    Plugin 'keith/tmux.vim'                       " Tmux conf syntax highlighting
+    call plug#begin('~/.vim/plugged')
 
-    call vundle#end()                            " Vundle setup
-    filetype on                                  " Finally, let's not forget to turn this back on
+    Plug 'kien/ctrlp.vim'                       " Fuzzy File Finder
+    Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " Speed up CtrlP
+    Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'} " File Manager
+    Plug 'tpope/vim-vinegar'                    " File Manager
+    Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
+    Plug 'honza/vim-snippets'                   " Some default snippets
+    Plug 'scrooloose/syntastic'                 " Static Analysis
+    Plug 'scrooloose/nerdcommenter'             " easy commenting for code
+    Plug 'tpope/vim-commentary'                 " comment and uncomment things
+    Plug 'tpope/vim-fugitive'                   " GIT Specific tools
+    Plug 'tpope/vim-sleuth'                     " Work out indentation rules on the fly
+    Plug 'tpope/vim-repeat'                     " Enable '.' repeating with supported plugins
+    Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
+    Plug 'tpope/vim-speeddating'                " Iterate dates easily
+    Plug 'tpope/vim-unimpaired'                 " Tim Pope's bracket mappings
+    Plug 'tpope/vim-abolish'                    " easily search for, substitute, and abbreviate multiple variants of a word
+    Plug 'tpope/vim-eunuch'                     " Unix commands in vim
+    Plug 'tpope/vim-rails', {'for': 'ruby'}     " Rails for vim
+    Plug 'tpope/vim-bundler', {'for': 'ruby'}   " For Rails... you don't strictly need bundler, but it helps
+    Plug 'kshenoy/vim-signature'                " show line marks
+    Plug 'mileszs/ack.vim'                      " Ack for vim
+    Plug 'rking/ag.vim'                         " Ag for vim
+    Plug 'vim-scripts/ZoomWin'                  " Toggle zoom
+    Plug 'vim-scripts/Gundo'                    " Visualize your undo true
+    Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
+    Plug 'mtth/scratch.vim'                     " Unobtrusive scratch window
+    Plug 'godlygeek/tabular'                    " Vim script for text filtering and alignment
+    Plug 'flazz/vim-colorschemes'               " Huge collection of colourschemes
+    Plug 'terryma/vim-multiple-cursors'         " Multiple selectors
+    Plug 'vimoutliner/vimoutliner'              " Outlining
+    Plug 'kana/vim-vspec'                       " Vspec vim testing tools
+    Plug 'takac/vim-hardtime'                   " Makes using hjkl and arrow harder (1 second pause)
+    Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM') } " Syntax completion
+    Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
+    Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'} " Fold markdown on section headings
+    Plug 'Keithbsmiley/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
+    Plug 'rust-lang/rust.vim', {'for': 'rust'}  " Rust syntax highlighting and stuff
+    Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
+    Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
+    Plug 'lukaszb/vim-web-indent', {'for': ['html','javascript']} " Better js and html auto indent
+    Plug 'tristen/vim-sparkup', {'for': ['html']} " Sparkup for vim HTML
+    Plug 'gregsexton/MatchTag', {'for': ['html']} " Highlights the matching HTML tag
+    Plug 'ap/vim-css-color'                     " Display CSS colours
+    Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
+    Plug 'rodjek/vim-puppet', {'for': 'puppet'} " Puppet highlighting etc
+    Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
+    Plug 'benmills/vimux'                       " Run tmux commands from vim
+
+    call plug#end()
 
 " }}}
 

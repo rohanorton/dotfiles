@@ -40,6 +40,7 @@
     Plug 'tpope/vim-eunuch'                     " Unix commands in vim
     Plug 'tpope/vim-rails', {'for': 'ruby'}     " Rails for vim
     Plug 'tpope/vim-bundler', {'for': 'ruby'}   " For Rails... you don't strictly need bundler, but it helps
+    Plug 'tpope/vim-tbone'                      " Integrate with Tmux
     Plug 'kshenoy/vim-signature'                " show line marks
     Plug 'mileszs/ack.vim'                      " Ack for vim
     Plug 'rking/ag.vim'                         " Ag for vim

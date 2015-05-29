@@ -29,7 +29,6 @@
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
     Plug 'honza/vim-snippets'                   " Some default snippets
     Plug 'scrooloose/syntastic'                 " Static Analysis
-    Plug 'scrooloose/nerdcommenter'             " easy commenting for code
     Plug 'tpope/vim-commentary'                 " comment and uncomment things
     Plug 'tpope/vim-fugitive'                   " GIT Specific tools
     Plug 'tpope/vim-sleuth'                     " Work out indentation rules on the fly

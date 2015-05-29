@@ -72,6 +72,7 @@
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
     Plug 'junegunn/vim-peekaboo'                " View contents of register
+    Plug 'bronson/vim-trailing-whitespace'      " Highlight trailing whitespace in red, or remove with FixWhitespace
 
     call plug#end()
 
@@ -493,11 +494,7 @@
             " clear group
             autocmd!
             " set mark to jump back to after substitution
-            autocmd BufWritePre * :execute "norm!ms"
-            " substitute whitespace, and jump back to s mark
-            autocmd BufWritePre * :%s/\s\+$//e|norm!`s
-            " clean up mark
-            autocmd BufWritePre * :delmarks s
+            autocmd BufWritePre * :FixWhitespace
         augroup END
     endif
 

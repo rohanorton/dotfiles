@@ -70,6 +70,7 @@
     Plug 'rodjek/vim-puppet', {'for': 'puppet'} " Puppet highlighting etc
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
+    Plug 'junegunn/vim-peekaboo'                " View contents of register
 
     call plug#end()
 

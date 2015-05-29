@@ -29,7 +29,7 @@
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
     Plug 'honza/vim-snippets'                   " Some default snippets
     Plug 'scrooloose/syntastic'                 " Static Analysis
-    Plug 'tpope/vim-commentary'                 " comment and uncomment things
+    Plug 'tomtom/tcomment_vim'                  " comment and uncomment things (even works on inline code apparently)
     Plug 'tpope/vim-fugitive'                   " GIT Specific tools
     Plug 'tpope/vim-sleuth'                     " Work out indentation rules on the fly
     Plug 'tpope/vim-repeat'                     " Enable '.' repeating with supported plugins

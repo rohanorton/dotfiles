@@ -239,6 +239,9 @@
     nnoremap oo mzo<Esc>`z
     nnoremap OO mzO<Esc>`z
 
+    " Open / close undo tree
+    nnoremap gu :GundoToggle<Cr>
+
 " }}}
 
 " Leader Key {{{

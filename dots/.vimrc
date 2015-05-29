@@ -419,20 +419,17 @@
 
 " Plugin - NERDTree {{{
 
-    "nmap <leader>e :NERDTreeToggle<CR>
+    nmap <leader>e :NERDTreeToggle<CR>
 
     "" Ignore uses regexp, optional [[file]] or [[dir]]:
-    "let NERDTreeIgnore=[]
+    let NERDTreeIgnore=[]
 
     "let NERDTreeAutoDeleteBuffer=1
     if has("autocmd")
         augroup nerd_tree_setup
             autocmd!
-            "autocmd VimEnter * NERDTree     " Open by default
-            "" Close if only one buffer left open:
-            "autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
-            "" Have NERDTree open as background split
-            "autocmd VimEnter * wincmd p
+            " Close if only one buffer left open:
+            autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
         augroup END
     endif
 

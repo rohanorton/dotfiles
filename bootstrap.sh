@@ -15,11 +15,11 @@ function link_dotfiles() {
             # it needs to be removed before a symlink can be created
             mv $dst $dst.bak
         fi
-        # if the directory still exists this means that it is already a symlink
-        # or something went wrong, so we shouldn't really try and add another.
-        if [ ! -d "$dst" ]; then
-            ln -sf $src $dst
+        # delete existing link, otherwise new link will be put inside old
+        if [ -L "$dst" ]; then
+            rm $dst
         fi
+        ln -sf $src $dst
     done
 
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

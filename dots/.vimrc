@@ -183,10 +183,9 @@
     set viminfo^=%       " Remember info about open buffers on close
 
     if has("autocmd")
-        augroup goto_last_editing_position
+        augroup goto_last_editing_position_on_open
             " clear group
             autocmd!
-            " Return to last edit position when opening files (You want this!)
             autocmd BufReadPost *
                  \ if line("'\"") > 0 && line("'\"") <= line("$") |
                  \   exe "normal! g`\"" |
@@ -484,19 +483,13 @@
 " Misc. {{{
 
     if has("autocmd")
-        augroup source_vimrc
-            " clear group
+        augroup source_vimrc_on_save
             autocmd!
-            " Source the vimrc file after saving it
             autocmd bufwritepost .vimrc source $MYVIMRC
         augroup END
 
-        " Strip trailing whitespace ... may not want this on all files, but it
-        " is for now
-        augroup remove_whitespace
-            " clear group
+        augroup remove_whitespace_on_save
             autocmd!
-            " set mark to jump back to after substitution
             autocmd BufWritePre * :FixWhitespace
         augroup END
     endif

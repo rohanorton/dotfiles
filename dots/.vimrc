@@ -235,8 +235,8 @@
     " The keybinding  might be an issue if you want to start a new line with
     " o/O, I'm trialing it for now... if it doesn't work, might use
     " <C-Shift> or something.
-    nnoremap oo mzo<Esc>`z
-    nnoremap OO mzO<Esc>`z
+    nnoremap oo mzo<Esc>`z:delmarks z<CR>
+    nnoremap OO mzO<Esc>`z:delmarks z<CR>
 
     " Open / close undo tree
     nnoremap gu :GundoToggle<Cr>

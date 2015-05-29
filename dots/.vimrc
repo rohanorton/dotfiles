@@ -394,7 +394,7 @@
     let g:list_of_visual_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
     let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
-    let g:hardtime_ignore_buffer_patterns = []
+    let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
 
     let g:hardtime_ignore_quickfix = 1
 

@@ -106,3 +106,4 @@ fi
 if [ -f ~/.sh_aliases ]; then
     source ~/.sh_aliases
 fi
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

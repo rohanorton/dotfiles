@@ -16,6 +16,15 @@ snippet shebang "SheBang!" b
 $0
 endsnippet
 
+snippet jasmine "Jasmine template" b
+/*jslint node:true*/
+/*globals jasmine, expect, describe, it, beforeEach, afterEach, spyOn */
+
+'use strict';
+
+$0
+endsnippet
+
 snippet node "JSlint options" b
 /*jslint node:true*/
 
@@ -66,7 +75,7 @@ describe('$1', function () {
 endsnippet
 
 snippet it "It block" b
-it('$1', function (${2:done}) {
+it('$1', function ($2) {
 	$0
 });
 endsnippet

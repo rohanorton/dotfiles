@@ -108,6 +108,12 @@
 
 " }}}
 
+" Layout {{{
+
+    set noequalalways " prevent splits automatically equalizing in size
+
+" }}}
+
 " Searching {{{
 "
     set magic          " Changes the way backslashes work in search patterns

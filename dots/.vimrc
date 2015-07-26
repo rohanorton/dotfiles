@@ -498,6 +498,12 @@
 
 " }}}
 
+" Plugin - Vim-JSON {{{
+
+    let g:vim_json_syntax_conceal = 0
+
+"}}}
+"
 " Plugin - Vimux {{{
 
     nnoremap <leader>\ :VimuxTogglePane<CR>

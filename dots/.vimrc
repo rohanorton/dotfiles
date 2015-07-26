@@ -73,6 +73,9 @@
     Plug 'benmills/vimux'                       " Run tmux commands from vim
     Plug 'junegunn/vim-peekaboo'                " View contents of register
     Plug 'bronson/vim-trailing-whitespace'      " Highlight trailing whitespace in red, or remove with FixWhitespace
+    Plug 'mustache/vim-mustache-handlebars'     " Mustache / Handlebars syntax etc
+    Plug 'elzr/vim-json'                        " Better JSON highlighting
+    Plug 'freitass/todo.txt-vim'                " Syntax etc for todo.txt
 
     call plug#end()
 

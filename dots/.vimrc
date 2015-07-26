@@ -114,6 +114,20 @@
 
 " }}}
 
+" Bells {{{
+
+    set noerrorbells
+    set novisualbell
+    set t_vb=
+    if has("autocmd")
+        augroup disable_bell_in_macvim
+            autocmd!
+            autocmd! GUIEnter * set vb t_vb=
+        augroup END
+    endif
+
+" }}}
+
 " Searching {{{
 "
     set magic          " Changes the way backslashes work in search patterns

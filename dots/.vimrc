@@ -86,10 +86,10 @@
     set pastetoggle=<F2>            " Set F2 to toggle paste mode
 
     " Custom control-key keybindings for copying, cutting and pasting:
-    vmap <C-c> "+yi
-    vmap <C-x> "+c
-    vmap <C-v> c<ESC>"+p
-    imap <C-v> <ESC>"+pA
+    vnoremap <C-c> "+yi
+    vnoremap <C-x> "+c
+    vnoremap <C-v> c<ESC>"+p
+    inoremap <C-v> <ESC>"+pA
 
 " }}}
 
@@ -204,8 +204,8 @@
     " (although - seems preferable, this conflicts with vim-vinegar -- which
     " surely takes priority! -- and it feels weird to be pressing shift for
     " one command but not the other)
-    nmap + <C-a>
-    nmap _ <C-x>
+    nnoremap + <C-a>
+    nnoremap _ <C-x>
 
     " Remaps for commonly mistyped commands:
     :command! WQ wq
@@ -216,15 +216,15 @@
     :command! Q q
 
     " Tab and Shift-Tab to indent in normal and insert mode
-    nmap <S-Tab> <<
-    imap <S-Tab> <ESC><<i
+    nnoremap <S-Tab> <<
+    inoremap <S-Tab> <ESC><<i
 
     " Visual mode searching under the cursor
     vnoremap <silent> * :call VisualSelection('f')<CR>
     vnoremap <silent> # :call VisualSelection('b')<CR>
 
     " Changing default WinZoom key to be similar to tmux
-    map <C-w>z <C-w>o
+    noremap <C-w>z <C-w>o
 
     " Space is generally pretty useless, remapping to page-up / page-down
     nnoremap <Space> <C-d>
@@ -282,14 +282,18 @@
     nnoremap <leader>vd :vsplit ~/Documents/vim_diary.md<CR>
 
     " \cd to change directory to cwd of buffer
-    map <leader>cd :cd %:p:h<cr>:pwd<cr>
+    noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+    " \= and \- to underline current line
+    noremap <leader>= yypVr=
+    noremap <leader>- yypVr-
 
 " }}}
 
 " Spelling {{{
 
     " Set F5 to toggle spellcheck
-    :map <F5> :setlocal spell! spelllang=en_gb<CR>"
+    noremap <F5> :setlocal spell! spelllang=en_gb<CR>"
 
 " }}}
 
@@ -422,7 +426,7 @@
 
 " Plugin - NERDTree {{{
 
-    nmap <leader>e :NERDTreeToggle<CR>
+    nnoremap <leader>e :NERDTreeToggle<CR>
 
     "" Ignore uses regexp, optional [[file]] or [[dir]]:
     let NERDTreeIgnore=[]

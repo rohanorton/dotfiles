@@ -462,6 +462,13 @@
 
 " }}}
 
+" Plugin - Peekaboo {{{
+
+    " open peekaboo window in current window
+    let g:peekaboo_window="enew"
+
+" }}}
+
 " Plugin - Powerline {{{
 
     " Source the Powerline plugin

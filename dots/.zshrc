@@ -20,19 +20,9 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
 
     git
-    git-extras
     zsh-users/zsh-completions src
     zsh-users/zsh-history-substring-search
     zsh-users/zsh-syntax-highlighting
-    kennethreitz/autoenv
-    chrissicool/zsh-256color
-    colored-man
-    Tarrasch/zsh-bd
-    ssh-agent
-    bower
-    node
-    npm
-    tmux
     extract
     vi-mode
 
@@ -41,6 +31,7 @@ EOBUNDLES
 antigen apply
 
 # Vim Keybindings
+export KEYTIMEOUT=1 # set key delay to 10ms
 bindkey -M vicmd '?' history-incremental-search-backward
 bindkey -M vicmd 'k' up-line-or-search
 bindkey -M vicmd 'j' down-line-or-search
@@ -48,5 +39,5 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 source_existing /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
 source_existing $HOME/.sh_aliases
+source_existing $HOME/.fzf.zsh

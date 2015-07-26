@@ -104,6 +104,10 @@
 
     alias bc='bc -l -q' # load bc's standard math libs, quietly
 
+    # This is useful for renaming mp3s downloaded off youtube...
+    # youtube-dl appends the id of the video to the end,
+    alias rename_youtube_mp3s="rename 's/-\S.*mp3/.mp3/'"
+
 # }}}
 
 # vim:fdm=marker ft=zsh

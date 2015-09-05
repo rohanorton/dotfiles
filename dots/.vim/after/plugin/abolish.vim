@@ -1,5 +1,9 @@
 " My usual JavaScript errors:
 
+if !exists("g:loaded_abolish")
+    finish
+endif
+
 Abolish ar{ug,gu}{em,me,mne}{ts,nst,nts} arguments
 
 Abolish con{soel,osle,sol} console

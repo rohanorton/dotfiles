@@ -38,6 +38,8 @@ bindkey -M vicmd 'j' down-line-or-search
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 source_existing /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.fzf.zsh

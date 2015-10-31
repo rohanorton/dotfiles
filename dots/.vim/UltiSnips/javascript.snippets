@@ -16,6 +16,21 @@ snippet shebang "SheBang!" b
 $0
 endsnippet
 
+snippet mocha "Mocha template" b
+/*jslint node:true*/
+/*globals describe, it, beforeEach, afterEach*/
+
+'use strict';
+
+var assert = require('assert');
+
+describe('$1', function () {
+	it('$2', function ($3) {
+		$0
+	});
+});
+endsnippet
+
 snippet jasmine "Jasmine template" b
 /*jslint node:true*/
 /*globals jasmine, expect, describe, it, beforeEach, afterEach, spyOn */
@@ -63,12 +78,13 @@ Object.keys(${1:${VISUAL}}).forEach(function (key) {
 endsnippet
 
 snippet str "JSON stringify object" b
-JSON.stringify(${0:${VISUAL}});
+JSON.stringify(${1:${VISUAL}}, ${2:null, 4});
+$0
 endsnippet
 
 # Jasmine testing stuff
 
-snippet "des?c?r" "Describe block" b
+snippet "desc" "Describe block" b
 describe('$1', function () {
 	$0
 });

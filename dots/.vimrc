@@ -235,8 +235,6 @@
     :command! Wq wq
     :command! W w
     :command! Q q
-    :command! W w
-    :command! Q q
 
     " Tab and Shift-Tab to indent in normal and insert mode
     nnoremap <S-Tab> <<

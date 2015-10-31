@@ -63,7 +63,6 @@
     Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
     Plug 'moll/vim-node'                        " Adds support for `gf` inside require('...') amongst other things
     Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
-    Plug 'lukaszb/vim-web-indent', {'for': ['html','javascript']} " Better js and html auto indent
     Plug 'tristen/vim-sparkup', {'for': ['html']} " Sparkup for vim HTML
     Plug 'gregsexton/MatchTag', {'for': ['html']} " Highlights the matching HTML tag
     Plug 'ap/vim-css-color'                     " Display CSS colours
@@ -76,6 +75,10 @@
     Plug 'mustache/vim-mustache-handlebars'     " Mustache / Handlebars syntax etc
     Plug 'elzr/vim-json'                        " Better JSON highlighting
     Plug 'freitass/todo.txt-vim'                " Syntax etc for todo.txt
+    Plug 'kchmck/vim-coffee-script'             " Syntax highlighting etc for coffeescript
+    Plug 'elixir-lang/vim-elixir'               " Syntax highlighting for elixir
+    Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
+    Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
 
     call plug#end()
 

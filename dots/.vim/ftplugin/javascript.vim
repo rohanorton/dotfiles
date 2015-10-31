@@ -11,8 +11,8 @@ nmap gd :TernDef<CR>
 
 function! s:set_javascript_checker() " {{{
     " Set which linter syntastic uses based on lint option comments
-    let l:lint_comment_line_num = search('\/\*js.int', 'nwb')
-    let l:linter = matchstr(getline(l:lint_comment_line_num), 'js.int')
+    let l:lint_comment_line_num = search('\/\*.s.int', 'nwb')
+    let l:linter = matchstr(getline(l:lint_comment_line_num), '.s.int')
 
     if (len(l:linter))
         let g:syntastic_javascript_checkers = [ l:linter ]

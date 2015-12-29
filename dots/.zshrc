@@ -40,6 +40,6 @@ bindkey '^[[B' down-line-or-search
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-source_existing /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+source_existing /usr/local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.fzf.zsh

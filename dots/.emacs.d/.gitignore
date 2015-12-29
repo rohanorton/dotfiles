@@ -1,0 +1,8 @@
+elpa
+backups
+projectile-bookmarks.eld
+cider-history
+places
+auto-save-list
+.*
+!.gitignore

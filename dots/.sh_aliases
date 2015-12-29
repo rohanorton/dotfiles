@@ -63,6 +63,8 @@
         alias less="$VIM_LESS '+set nofoldenable'"
     fi
 
+    alias kill_last='kill -9 $!'
+
 # }}}
 
 # Tmux: {{{

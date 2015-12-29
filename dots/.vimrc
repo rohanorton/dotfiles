@@ -365,8 +365,8 @@
 " Grep / Ack / Ag {{{
 
     if executable('ag')
-        set grepprg="ag --nogroup --nocolor --column"
-        let g:ackprg = 'ag --nogroup --nocolor --column'
+        set grepprg  = "ag --vimgrep"
+        let g:ackprg = 'ag --vimgrep'
     elseif executable('ack')
         set grepprg="ack --nogroup --nocolor --column"
     endif

@@ -475,13 +475,13 @@
 
     " Source the Powerline plugin
 
-    if filereadable("/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim")
-	source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+    if filereadable("/usr/local/lib/python3.5/site-packages/powerline/bindings/vim/plugin/powerline.vim")
+        source /usr/local/lib/python3.5/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
-	set gfn=DejaVu\ Sans\ Mono\ for\ Powerline:h11  " Set Font
-	let g:Powerline_symbols = 'fancy'               " Allow fancy symbols
+        set gfn=DejaVu\ Sans\ Mono\ for\ Powerline:h11  " Set Font
+        let g:Powerline_symbols = 'fancy'               " Allow fancy symbols
 
-	set laststatus=2                                " Prevent statusline from being hidden if no splits
+        set laststatus=2                                " Prevent statusline from being hidden if no splits
     endif
 
 " }}}

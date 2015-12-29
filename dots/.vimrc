@@ -80,6 +80,7 @@
     Plug 'elixir-lang/vim-elixir'               " Syntax highlighting for elixir
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
+    Plug 'severin-lemaignan/vim-minimap'        " Sublime style minimap
 
     call plug#end()
 

@@ -58,6 +58,10 @@
     ;; for quick (un-)commenting of code
     evil-commentary
 
+    ;; In visual mode, the # and * keys will search for the
+    ;; selected text
+    evil-visualstar
+
     ;; Powerline with evil-mode notification
     powerline-evil
 

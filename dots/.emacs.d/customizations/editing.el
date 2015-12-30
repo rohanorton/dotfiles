@@ -19,6 +19,10 @@
 
 (provide 'config-powerline)
 
+(require 'evil-visualstar)
+(global-evil-visualstar-mode)
+(set 'evil-visualstar/persistent t)
+
 ;; Allow hash to be entered 
 (define-key evil-insert-state-map (kbd "M-3") "#")
 (define-key evil-normal-state-map (kbd "M-3") (kbd "#"))

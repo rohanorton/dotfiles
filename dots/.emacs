@@ -26,7 +26,7 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("tromey" . "http://tromey.com/elpa/")
-                         ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 
 
 ;; Load and activate emacs packages. Do this first so that the

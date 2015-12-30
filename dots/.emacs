@@ -58,6 +58,9 @@
     ;; for quick (un-)commenting of code
     evil-commentary
 
+    ;; Port of vim-exchange. For switching two selections of text
+    evil-exchange
+
     ;; In visual mode, the # and * keys will search for the
     ;; selected text
     evil-visualstar
@@ -175,6 +178,12 @@
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
 
+;; Make emacs more like vim.
+(load "evil-setup.el")
+
+;; Dealing with whitespace:
+(load "whitespace-setup.el")
+
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
@@ -185,6 +194,8 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+
+(set-default 'truncate-lines t)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))

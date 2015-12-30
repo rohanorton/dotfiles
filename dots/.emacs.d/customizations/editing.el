@@ -1,36 +1,5 @@
 ;; Customizations relating to editing a buffer.
 
-;; vim mode
-(require 'evil)
-(evil-mode t)
-
-(require 'powerline-evil)
-(powerline-evil-vim-color-theme)
-
-(require 'evil-numbers)
-(define-key evil-normal-state-map (kbd "+") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "_") 'evil-numbers/dec-at-pt)
-
-(require 'evil-surround)
-(global-evil-surround-mode 1)
-
-(require 'evil-commentary)
-(evil-commentary-mode)
-
-(provide 'config-powerline)
-
-(require 'evil-visualstar)
-(global-evil-visualstar-mode)
-(set 'evil-visualstar/persistent t)
-
-;; Allow hash to be entered 
-(define-key evil-insert-state-map (kbd "M-3") "#")
-(define-key evil-normal-state-map (kbd "M-3") (kbd "#"))
-
-;;(require 'evil-commentary)
-;(evil-commentary-mode)
-
-
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -104,4 +73,3 @@
     (quit nil)))
 
 (setq electric-indent-mode nil)
-

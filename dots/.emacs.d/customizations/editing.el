@@ -7,6 +7,10 @@
 (require 'powerline-evil)
 (powerline-evil-vim-color-theme)
 
+(require 'evil-numbers)
+(define-key evil-normal-state-map (kbd "+") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "_") 'evil-numbers/dec-at-pt)
+
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 

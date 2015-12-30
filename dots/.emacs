@@ -51,6 +51,9 @@
     ;; for changing surrounding elements in text
     evil-surround
 
+    ;; vim increment and decrement numbers
+    evil-numbers
+
     ;; Port of tpope's vim-commentary
     ;; for quick (un-)commenting of code
     evil-commentary

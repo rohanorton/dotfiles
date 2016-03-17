@@ -53,7 +53,6 @@
     Plug 'terryma/vim-multiple-cursors'         " Multiple selectors
     Plug 'vimoutliner/vimoutliner'              " Outlining
     Plug 'kana/vim-vspec'                       " Vspec vim testing tools
-    Plug 'takac/vim-hardtime'                   " Makes using hjkl and arrow harder (1 second pause)
     Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM') } " Syntax completion
     Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
     Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'} " Fold markdown on section headings
@@ -414,28 +413,6 @@
     nnoremap <leader>gb :Gblame<CR>
 
 "}}}
-
-" Plugin - Hardtime {{{
-
-    let g:hardtime_default_on = 1 " turn hardtime on
-
-    let g:list_of_normal_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-    let g:list_of_visual_keys = ["h", "j", "k", "l", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-    let g:list_of_insert_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-
-    let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
-
-    let g:hardtime_ignore_quickfix = 1
-
-    let g:hardtime_allow_different_key = 1 "allow a key if it is different from the previous key ('jk' but not 'jj')
-
-    let g:hardtime_timeout = 2000 " timeout in ms
-
-    let g:hardtime_showmsg = 1 " show message
-
-    let g:hardtime_maxcount = 1 " number of keypresses that start hardtime
-
-" }}}
 
 " Plugin - Mutliple-Cursors {{{
 

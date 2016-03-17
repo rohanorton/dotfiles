@@ -24,4 +24,7 @@ source_existing /usr/local/lib/python3.5/site-packages/powerline/bindings/zsh/po
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.fzf.zsh
 
+source_existing $HOME/.zsh/prompt.zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

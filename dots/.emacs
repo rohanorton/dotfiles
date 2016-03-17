@@ -109,6 +109,9 @@
     ;; edit html tags like sexps
     tagedit
 
+    ;; Elm
+    elm-mode
+
     ;; git integration
     magit))
 

@@ -79,6 +79,7 @@
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
     Plug 'severin-lemaignan/vim-minimap'        " Sublime style minimap
+    Plug 'lambdatoast/elm.vim'                  " Elm syntax etc
 
     call plug#end()
 

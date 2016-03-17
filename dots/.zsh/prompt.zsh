@@ -1,3 +1,6 @@
+# Stolen from:
+# http://stackoverflow.com/a/12935606
+
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' stagedstr 'M'

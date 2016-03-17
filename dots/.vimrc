@@ -24,7 +24,6 @@
 
     Plug 'kien/ctrlp.vim'                       " Fuzzy File Finder
     Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " Speed up CtrlP
-    Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'} " File Manager
     Plug 'tpope/vim-vinegar'                    " File Manager
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
     Plug 'honza/vim-snippets'                   " Some default snippets
@@ -444,24 +443,6 @@
     let g:multi_cursor_start_word_key='<C-n>'
     " if wanting standard behaviour... (like g* and g#)
     let g:multi_cursor_start_key='g<C-n>'
-
-" }}}
-
-" Plugin - NERDTree {{{
-
-    nnoremap <leader>e :NERDTreeToggle<CR>
-
-    "" Ignore uses regexp, optional [[file]] or [[dir]]:
-    let NERDTreeIgnore=[]
-
-    "let NERDTreeAutoDeleteBuffer=1
-    if has("autocmd")
-        augroup nerd_tree_setup
-            autocmd!
-            " Close if only one buffer left open:
-            autocmd bufenter * if (winnr("$") == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
-        augroup END
-    endif
 
 " }}}
 

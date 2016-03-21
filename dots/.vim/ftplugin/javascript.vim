@@ -31,4 +31,7 @@ if has("autocmd")
     augroup END
 endif
 
+" Allow jsx in js files:
+let g:jsx_ext_required = 0
+
 " vim:fdm=marker

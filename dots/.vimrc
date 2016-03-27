@@ -80,6 +80,7 @@
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
     Plug 'severin-lemaignan/vim-minimap'        " Sublime style minimap
     Plug 'lambdatoast/elm.vim'                  " Elm syntax etc
+    Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
 
     call plug#end()
 

@@ -6,7 +6,7 @@ highlight OverLength ctermbg=red  ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 " syntax highlighting for fenced code blocks
-let g:markdown_fenced_languages=[ 
+let g:markdown_fenced_languages=[
     \   'c',
     \   'css',
     \   'html',
@@ -24,4 +24,10 @@ let g:markdown_fenced_languages=[
     \   'scss',
     \   'vim',
     \   'xml',
+    \   'haskell',
+    \   'hs=haskell',
+    \   'elm',
     \ ]
+
+setlocal spell spelllang=en_gb
+set complete+=kspell

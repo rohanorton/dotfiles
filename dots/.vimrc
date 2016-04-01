@@ -487,11 +487,6 @@
             autocmd!
             autocmd bufwritepost .vimrc source $MYVIMRC
         augroup END
-
-        augroup remove_whitespace_on_save
-            autocmd!
-            autocmd BufWritePre * :FixWhitespace
-        augroup END
     endif
 
     set timeoutlen=200

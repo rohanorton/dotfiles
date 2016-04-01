@@ -21,6 +21,10 @@ if command_exists cabal; then
     export PATH=$HOME/.cabal/bin:$PATH
 fi
 
+if command_exists stack; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
 # Ensure the correct version of vim is used
 export EDITOR=`command -v vim`
 export VISUAL=$EDITOR

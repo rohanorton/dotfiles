@@ -76,7 +76,8 @@
 
 # Vim: {{{
 
-    alias vim-plug-update='vim +PlugUpdate +qall'
+    alias vi="/usr/local/bin/vim"
+    alias vim="nvim"
 
 #}}}
 

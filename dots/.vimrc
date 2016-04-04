@@ -168,10 +168,12 @@
     set mouse=a              " No, I'm not l33t, wevs
 
     " fix not being able to select beyond col 222
-    if has("mouse_sgr")
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
+    if !has("nvim")
+        if has("mouse_sgr")
+            set ttymouse=sgr
+        else
+            set ttymouse=xterm2
+        end
     end
 
 " }}}
@@ -323,7 +325,9 @@
 " Terminal {{{
 
     set t_Co=256                  " Set terminal colour to 256
-    set term=xterm-256color       " Type of terminal used
+    if !has("nvim")
+        set term=xterm-256color       " Type of terminal used
+    end
     set termencoding=utf-8        " Always UTF-8
     if (executable('zsh'))
         set shell=zsh  " set the shell to use

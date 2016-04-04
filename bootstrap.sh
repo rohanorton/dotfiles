@@ -26,6 +26,9 @@ function link_dotfiles() {
 	        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     vim +PlugUpdate +qall
+
+    # neovim now uses vim config :)
+    ln -s ~/.vim ~/.config/nvim
 }
 
 

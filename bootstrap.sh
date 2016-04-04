@@ -25,10 +25,7 @@ function link_dotfiles() {
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    cp -rf ~/.vim/autoload/plug.vim ~/.nvim/autoload/plug.vim
-
     vim +PlugUpdate +qall
-    nvim +PlugUpdate +UpdateRemotePlugins +qall
 }
 
 

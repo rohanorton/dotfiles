@@ -84,6 +84,8 @@
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'edkolev/promptline.vim'
+    Plug 'edkolev/tmuxline.vim'
     Plug 'airblade/vim-gitgutter'
 
     call plug#end()
@@ -382,6 +384,45 @@
 
 
 "}}}
+
+" Plugin - Airline {{{
+
+    " Airline separators look rubbish wihtout powerline...
+    let g:airline_left_sep=' '
+    let g:airline_right_sep=' '
+    let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ }
+    let g:airline#extensions#whitespace#enabled = 0
+
+    " Tmux
+    let g:tmuxline_powerline_separators = 0
+
+    " Shell Prompt
+    let g:promptline_powerline_symbols = 0
+    let g:promptline_preset = {
+        \'a'    : [ '$USER' ],
+        \'b'    : [ promptline#slices#cwd() ],
+        \'c'    : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+    let g:promptline_theme = 'jelly'
+    let g:promptline_symbols = {
+                \ 'left'       : '',
+                \ 'left_alt'   : ' ',
+                \ 'dir_sep'    : '/',
+                \ 'truncation' : '...',
+                \ 'vcs_branch' : ' ',
+                \ 'space'      : ' '}
+
+" }}}
 
 " Plugin - Ctr-P {{{
 

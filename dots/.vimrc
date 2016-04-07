@@ -82,6 +82,9 @@
     Plug 'elmcast/elm-vim'                      " Elm syntax etc
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'airblade/vim-gitgutter'
 
     call plug#end()
 
@@ -418,6 +421,12 @@
     " Easy access to some things:
     nnoremap <leader>gd :Gdiff<CR>
     nnoremap <leader>gb :Gblame<CR>
+
+"}}}
+
+" Plugin - GitGutter {{{
+
+    set updatetime=250
 
 "}}}
 

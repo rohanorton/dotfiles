@@ -29,6 +29,14 @@ source_existing $HOME/.fzf.zsh
 
 source_existing $HOME/.shell_prompt.sh
 
+# jump to previous dir :)
+setopt AUTO_PUSHD
+alias 1="cd +1"
+alias 2="cd +2"
+alias 3="cd +3"
+alias 4="cd +4"
+alias 5="cd +5"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # search history with arrow keys

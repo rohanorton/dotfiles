@@ -12,6 +12,7 @@ nmap gd :TernDef<CR>
 function! s:set_javascript_checker() " {{{
     " Set which linter syntastic uses based on lint option comments
     let l:lint_comment_line_num = search('\/\*.s.int', 'nwb')
+    " Could be eslint, jslint, jshint
     let l:linter = matchstr(getline(l:lint_comment_line_num), '.s.int')
 
     if (len(l:linter))
@@ -19,8 +20,8 @@ function! s:set_javascript_checker() " {{{
     endif
 endfunction " }}}
 
-" Presume jslint
-let g:syntastic_javascript_checkers = ['jslint']
+" Presume eslint
+let g:syntastic_javascript_checkers = ['eslint']
 
 if has("autocmd")
     augroup set_js_linter

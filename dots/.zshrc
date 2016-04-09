@@ -48,3 +48,4 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

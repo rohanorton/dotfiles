@@ -14,6 +14,9 @@ source_existing $HOME/.sh_exports
 autoload -U compinit
 
 # ignore duplicate lines in history
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
 setopt HIST_IGNORE_DUPS
 
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -28,3 +31,10 @@ source_existing $HOME/.shell_prompt.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# search history with arrow keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down

@@ -65,6 +65,11 @@
 
     alias kill_last='kill -9 $!'
 
+    # Kill application that is using a port
+    killport() {
+        kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
+    }
+
 # }}}
 
 # Tmux: {{{

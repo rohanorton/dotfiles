@@ -45,6 +45,7 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+source_existing `brew --prefix`/etc/profile.d/z.sh
 
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh

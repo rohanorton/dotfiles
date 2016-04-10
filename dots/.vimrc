@@ -13,9 +13,7 @@
 " Plugins {{{
 
     function! BuildYCM(info)
-        " If the ycm_support_libs library APIs have changed (happens rarely),
-        " YCM will notify you to recompile it.
-        if a:info.status == 'installed' || a:info.force
+        if a:info.status == 'installed' || a.info.status == 'updated' || a:info.force
             !./install.sh --clang-completer
         endif
     endfunction

@@ -23,6 +23,11 @@ HISTFILE=~/.zsh_history
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 
+setopt NO_CASE_GLOB
+setopt NUMERIC_GLOB_SORT
+setopt extendedglob
+unsetopt caseglob
+
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

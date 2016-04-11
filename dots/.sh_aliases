@@ -37,6 +37,7 @@
     alias ...='cd ../..'         # up two directories
     alias ....='cd ../../..'     # up three directories
     alias ls='ls --color -F'     # List dir with pretty colours and symbols
+    alias l='ls'                 # Ditto
     alias ll='ls -lah'           # list long, hidden, human readable
     alias df='df -h'             # human readable df
     alias du='du -h'             # human readable du

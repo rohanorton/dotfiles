@@ -17,9 +17,10 @@ source_existing $HOME/.sh_exports
 autoload -U compinit
 
 # ignore duplicate lines in history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
+setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

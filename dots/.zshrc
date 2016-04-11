@@ -2,6 +2,9 @@
 # Rohan's Zshrc #
 # ============= #
 
+# if not running interactively, do nothing:
+[ -z "$PS1" ] && return
+
 source_existing() {
     [ -f "$1" ] && source "$1";
 }

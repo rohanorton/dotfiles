@@ -15,6 +15,8 @@ source_existing $HOME/.sh_exports
 
 # command completion
 autoload -U compinit
+# (brew install zsh-completions)
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # ignore duplicate lines in history
 HISTSIZE=10000

@@ -67,8 +67,16 @@
     alias kill_last='kill -9 $!'
 
     # Kill application that is using a port
-    killport() {
-        kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
+    function ps-on-port() {
+        lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'
+    }
+
+    function what-is-on-port() {
+        ps -p `ps-on-port $1`
+    }
+
+    function kill-port() {
+        kill -9 `ps-on-port $1`
     }
 
 # }}}

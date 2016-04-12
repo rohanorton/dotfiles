@@ -59,9 +59,9 @@
     Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
     Plug 'moll/vim-node'                        " Adds support for `gf` inside require('...') amongst other things
     Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
-    Plug 'lukaszb/vim-web-indent', {'for': []} " Better js and html auto indent
-    Plug 'tristen/vim-sparkup', {'for': ['html']} " Sparkup for vim HTML
-    Plug 'gregsexton/MatchTag', {'for': ['html']} " Highlights the matching HTML tag
+    Plug 'lukaszb/vim-web-indent',              " Better js and html auto indent
+    Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
+    Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
     Plug 'ap/vim-css-color'                     " Display CSS colours
     Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
     Plug 'rodjek/vim-puppet', {'for': 'puppet'} " Puppet highlighting etc

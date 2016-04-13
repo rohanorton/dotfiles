@@ -49,6 +49,16 @@
 
 #}}}
 
+# Rsync {{{
+
+    alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
+    alias rsync-copy="rsync -avz --progress -h"
+    alias rsync-move="rsync -avz --progress -h --remove-source-files"
+    alias rsync-update="rsync -avzu --progress -h"
+    alias rsync-sync="rsync -avzu --delete --progress -h"
+
+# }}}
+
 # Shell: {{{
 
     alias please='sudo'       # it doesn't hurt to be polite

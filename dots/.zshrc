@@ -22,8 +22,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
+setopt append_history
+setopt hist_ignore_dups
+setopt share_history
 
 setopt NO_CASE_GLOB
 setopt NUMERIC_GLOB_SORT

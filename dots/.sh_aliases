@@ -51,6 +51,8 @@
 
 # Shell: {{{
 
+    alias please='sudo'       # it doesn't hurt to be polite
+
     alias q='exit'            # exit shell quickly
     alias :wq='exit'          # did i mention that i use vim?? :P
     alias :Wq='exit'

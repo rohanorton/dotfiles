@@ -13,7 +13,7 @@
 " Plugins {{{
 
     function! BuildYCM(info)
-        if a:info.status == 'installed' || a.info.status == 'updated' || a:info.force
+        if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
             !./install.sh --clang-completer
         endif
     endfunction

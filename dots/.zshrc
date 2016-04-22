@@ -62,6 +62,8 @@ source_existing `brew --prefix`/etc/profile.d/z.sh
 
 source_existing $HOME/.zsh/k/k.sh
 
+eval "$(thefuck --alias)"
+
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

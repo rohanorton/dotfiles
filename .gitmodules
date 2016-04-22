@@ -1,3 +1,6 @@
 [submodule "dots/.zsh/antigen"]
 	path = dots/.zsh/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "dots/.zsh/k"]
+	path = dots/.zsh/k
+	url = git@github.com:supercrabtree/k.git

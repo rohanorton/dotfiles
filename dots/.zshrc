@@ -48,7 +48,7 @@ alias 3="cd +3"
 alias 4="cd +4"
 alias 5="cd +5"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source_existing $HOME/.fzf.zsh
 
 # search history with arrow keys
 autoload -U up-line-or-beginning-search

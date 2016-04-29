@@ -31,6 +31,19 @@ setopt NUMERIC_GLOB_SORT
 setopt extendedglob
 unsetopt caseglob
 
+autoload -U compinit
+compinit
+zmodload -i zsh/complist
+setopt hash_list_all            # hash everything before completion
+setopt completealiases          # complete alisases
+setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
+setopt complete_in_word         # allow completion from within a word/phrase
+setopt correct                  # spelling correction for commands
+setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
+setopt correct # correct spelling
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # ignore case
+
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

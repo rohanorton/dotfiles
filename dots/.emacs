@@ -184,6 +184,9 @@
 ;; Make emacs more like vim.
 (load "evil-setup.el")
 
+;; Some keybindings to replicate vim-vinegar
+(load "vinegar.el")
+
 ;; Dealing with whitespace:
 (load "whitespace-setup.el")
 

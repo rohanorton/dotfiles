@@ -25,8 +25,9 @@
 (define-key evil-insert-state-map (kbd "M-3") "#")
 (define-key evil-normal-state-map (kbd "M-3") (kbd "#"))
 
-;; Use helm-mini like CtrlP in vim:
-(define-key evil-normal-state-map (kbd "C-p") 'helm-mini)
+;; Use helm-projectile like CtrlP in vim:
+(require 'helm-projectile)
+(define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
 
 
 (require 'evil-exchange)

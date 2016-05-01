@@ -72,6 +72,9 @@
     ;; like ctrlp
     helm
 
+    ;; project fuzzy file finding
+    helm-projectile
+
     ;; makes handling lisp expressions much, much easier
     ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
     paredit

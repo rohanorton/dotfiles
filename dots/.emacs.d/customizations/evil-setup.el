@@ -36,3 +36,7 @@
 ;; https://github.com/Dewdrops/evil-exchange/issues/6
 ;(setq evil-exchange-key (kbd "zx"))
 (evil-exchange-install)
+
+(require 'linum-relative)
+(linum-relative-on)
+(setq linum-relative-current-symbol "")

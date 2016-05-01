@@ -115,6 +115,9 @@
     ;; Elm
     elm-mode
 
+    ; relative line numbers
+    linum-relative
+
     ;; git integration
     magit))
 

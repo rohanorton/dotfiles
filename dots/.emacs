@@ -13,10 +13,20 @@
 (prefer-coding-system 'utf-8)
 (load-library "iso-transl")
 
+;;;;
+;; Confirmations
+;;;;
+
 ;; 'y'/'n' instead of 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; don't ask to confirm creation of new file
 (setq confirm-nonexistent-file-or-buffer nil)
+
+;; stop asking to confirm if active buffer on exit
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
 
 ;;;;
 ;; Packages

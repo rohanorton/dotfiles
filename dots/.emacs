@@ -15,6 +15,8 @@
 
 ;; 'y'/'n' instead of 'yes'/'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
+;; don't ask to confirm creation of new file
+(setq confirm-nonexistent-file-or-buffer nil)
 
 ;;;;
 ;; Packages

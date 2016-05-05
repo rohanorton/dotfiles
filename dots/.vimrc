@@ -277,7 +277,7 @@
     nnoremap OO mzO<Esc>`z:delmarks z<CR>
 
     " Open / close undo tree
-    nnoremap gu :GundoToggle<Cr>
+    nnoremap gun :GundoToggle<Cr>
 
 " }}}
 

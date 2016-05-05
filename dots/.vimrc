@@ -100,6 +100,8 @@
     vnoremap <C-v> c<ESC>"+p
     inoremap <C-v> <ESC>"+pA
 
+    " Make Y consistent with D and C
+    nnoremap Y y$
 " }}}
 
 " Syntax & Highlighting {{{

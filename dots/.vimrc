@@ -247,6 +247,9 @@
     :command! W w
     :command! Q q
 
+    " Quickly escape using jk
+    inoremap jk <ESC>
+
     " Tab and Shift-Tab to indent in normal and insert mode
     nnoremap <S-Tab> <<
     inoremap <S-Tab> <ESC><<i

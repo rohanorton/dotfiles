@@ -479,6 +479,7 @@
     " Easy access to some things:
     nnoremap <leader>gd :Gdiff<CR>
     nnoremap <leader>gb :Gblame<CR>
+    nnoremap <leader>gr :Gread<CR>
 
 "}}}
 

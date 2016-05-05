@@ -247,8 +247,13 @@
     :command! W w
     :command! Q q
 
-    " Quickly escape using jk
+    " Quickly escape using jk or kj -- can mash the keys :)
     inoremap jk <ESC>
+    inoremap kj <ESC>
+
+    " Quickly save from normal mode -- double mashing saves :D
+    nnoremap jk :w<CR>
+    nnoremap kj :w<CR>
 
     " Tab and Shift-Tab to indent in normal and insert mode
     nnoremap <S-Tab> <<

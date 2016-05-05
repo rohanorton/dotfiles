@@ -188,6 +188,7 @@
 
     set backspace=2      " Make backspace work like most other apps
     set showmatch        " Show matching brackets
+    set virtualedit=block " Allows moving around the screen freely in visual block mode to define your selections.
 
 " }}}
 

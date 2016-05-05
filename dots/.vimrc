@@ -279,6 +279,14 @@
     " Open / close undo tree
     nnoremap gun :GundoToggle<Cr>
 
+    " Centre screen when jumping
+    nnoremap n nzz
+    nnoremap N Nzz
+    nnoremap * *zz
+    nnoremap # #zz
+    nnoremap } }zz
+    nnoremap { {zz
+
 " }}}
 
 " Leader Key {{{

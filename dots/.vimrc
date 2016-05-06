@@ -4,9 +4,11 @@
 
 " Important {{{
 
-    set nocompatible                " It's not 1970, we don't need to be VI compatible
-    set encoding=utf-8              " Always use UTF-8
-    scriptencoding utf-8
+    if !has('nvim')
+        set nocompatible                " It's not 1970, we don't need to be VI compatible
+        set encoding=utf-8              " Always use UTF-8
+        scriptencoding utf-8
+    endif
 
 " }}}
 

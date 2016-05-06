@@ -283,6 +283,12 @@
     nnoremap oo mzo<Esc>`z:delmarks z<CR>
     nnoremap OO mzO<Esc>`z:delmarks z<CR>
 
+    " easier pane navigation:
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-l> <C-w>l
+
     " Open / close undo tree
     nnoremap gun :GundoToggle<Cr>
 

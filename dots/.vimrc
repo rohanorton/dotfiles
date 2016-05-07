@@ -252,6 +252,8 @@
     " Quickly escape using jk or kj -- can mash the keys :)
     inoremap jk <ESC>
     inoremap kj <ESC>
+    vnoremap jk <ESC>
+    vnoremap kj <ESC>
 
     " Quickly save from normal mode -- double mashing saves :D
     nnoremap jk :w<CR>

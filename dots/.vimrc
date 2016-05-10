@@ -63,6 +63,7 @@
     Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
     Plug 'lukaszb/vim-web-indent', { 'for': ['html'] } " Better js and html auto indent
     Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
+    Plug 'mattn/emmet-vim'                      " Emmet
     Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
     Plug 'ap/vim-css-color'                     " Display CSS colours
     Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax

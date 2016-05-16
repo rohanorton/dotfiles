@@ -35,4 +35,8 @@ endif
 " Allow jsx in js files:
 let g:jsx_ext_required = 0
 
+" Use deoplete.
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
+
 " vim:fdm=marker

@@ -14,10 +14,8 @@
 
 " Plugins {{{
 
-    function! BuildYCM(info)
-        if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-            !./install.sh --clang-completer
-        endif
+    function! DoRemote(arg)
+        UpdateRemotePlugins
     endfunction
 
     call plug#begin('~/.vim/plugged')
@@ -53,7 +51,6 @@
     Plug 'terryma/vim-multiple-cursors'         " Multiple selectors
     Plug 'vimoutliner/vimoutliner'              " Outlining
     Plug 'kana/vim-vspec'                       " Vspec vim testing tools
-    Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM') } " Syntax completion
     Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
     Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'} " Fold markdown on section headings
     Plug 'Keithbsmiley/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
@@ -88,6 +85,17 @@
     Plug 'edkolev/promptline.vim'
     Plug 'edkolev/tmuxline.vim'
     Plug 'airblade/vim-gitgutter'
+
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+        Plug 'eagletmt/neco-ghc'                " deoplete ghc completion plugin
+        Plug 'carlitux/deoplete-ternjs'         " deoplete for javascript
+        Plug 'thinca/vim-ref'
+        Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+        Plug 'racer-rust/vim-racer'
+    else
+        Plug 'Shougo/neoplete.vim'
+    endif
 
     call plug#end()
 
@@ -482,6 +490,13 @@
     endif
 
 
+
+" }}}
+
+" Plugin - Deoplete {{{
+
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
 
 " }}}
 

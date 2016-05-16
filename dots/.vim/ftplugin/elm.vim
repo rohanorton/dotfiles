@@ -5,3 +5,5 @@ let g:elm_syntastic_show_warnings = 1
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+
+nnoremap K :ElmShowDocs<CR>

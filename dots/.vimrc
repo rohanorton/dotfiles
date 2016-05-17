@@ -94,7 +94,7 @@
         Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
         Plug 'racer-rust/vim-racer'
     else
-        Plug 'Shougo/neoplete.vim'
+        Plug 'Shougo/neocomplete.vim'
     endif
 
     call plug#end()

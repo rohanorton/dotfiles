@@ -85,6 +85,8 @@
     Plug 'edkolev/promptline.vim'
     Plug 'edkolev/tmuxline.vim'
     Plug 'airblade/vim-gitgutter'
+    Plug 'reedes/vim-pencil'
+    Plug 'dhruvasagar/vim-table-mode'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -528,6 +530,16 @@
 
     " open peekaboo window in current window
     let g:peekaboo_window="enew"
+
+" }}}
+
+" Plugin - Pencil {{{
+
+    augroup pencil
+      autocmd!
+      autocmd FileType markdown,mkd call pencil#init()
+      autocmd FileType text         call pencil#init()
+    augroup END
 
 " }}}
 

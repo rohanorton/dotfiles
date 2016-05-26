@@ -87,6 +87,7 @@
     Plug 'airblade/vim-gitgutter'
     Plug 'reedes/vim-pencil'
     Plug 'dhruvasagar/vim-table-mode'
+    Plug 'christoomey/vim-tmux-navigator'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

@@ -88,6 +88,7 @@
     Plug 'reedes/vim-pencil'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'terryma/vim-expand-region' " vvv
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -500,6 +501,13 @@
 
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#enable_smart_case = 1
+
+" }}}
+
+" Plugin - Expand Region{{{
+
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
 
 " }}}
 

@@ -262,6 +262,9 @@
     :command! W w
     :command! Q q
 
+    " Stop opening that stupid window, you never use it anyway!
+    map q: :q
+
     " Quickly escape using jk or kj -- can mash the keys :)
     inoremap jk <ESC>
     inoremap kj <ESC>

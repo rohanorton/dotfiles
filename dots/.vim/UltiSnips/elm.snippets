@@ -60,3 +60,24 @@ view : Model -> Html Msg
 view model =
     text "Hello, World!"
 endsnippet
+
+
+snippet startApp "Start App" b
+import Html.App as Html
+
+
+main : Program Never
+main =
+    Html.program
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+endsnippet
+
+
+snippet mod "Module definition" b
+module ${1:`!v snippet#Title(expand("%:t:r"))`} exposing (..)
+$0
+endsnippet

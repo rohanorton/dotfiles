@@ -77,6 +77,18 @@ source_existing $HOME/.zsh/k/k.sh
 
 eval "$(thefuck --alias)"
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

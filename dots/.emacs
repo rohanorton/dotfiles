@@ -77,6 +77,9 @@
     ;; selected text
     evil-visualstar
 
+    ;; double char escape
+    evil-escape
+
     ;; Powerline with evil-mode notification
     powerline-evil
 

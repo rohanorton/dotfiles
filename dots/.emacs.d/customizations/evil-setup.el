@@ -40,3 +40,10 @@
 (require 'linum-relative)
 (linum-relative-on)
 (setq linum-relative-current-symbol "")
+
+;; escape using jk
+(require 'evil-escape)
+(evil-escape-mode)
+(setq-default evil-escape-key-sequence "jk")
+
+

@@ -59,3 +59,8 @@
 
 ;; projectile everywhere!
 (projectile-global-mode)
+
+(require 'helm-projectile)
+
+(add-hook 'evil-mode-hook
+          (lambda () (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)))

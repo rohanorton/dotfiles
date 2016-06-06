@@ -132,6 +132,13 @@
     catch /^Vim\%((\a\+)\)\=:E185/
     endtry
 
+    " Highlight merge conflict markers
+    match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+
+    " Jump to next/previous merge conflict marker
+    nnoremap <silent> ]c /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
+    nnoremap <silent> [c ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>
+
 " }}}
 
 " Layout {{{

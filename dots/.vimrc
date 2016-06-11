@@ -85,7 +85,6 @@
     Plug 'edkolev/promptline.vim'
     Plug 'edkolev/tmuxline.vim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'reedes/vim-pencil'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'terryma/vim-expand-region' " vvv
@@ -553,16 +552,6 @@
 
     " open peekaboo window in current window
     let g:peekaboo_window="enew"
-
-" }}}
-
-" Plugin - Pencil {{{
-
-    augroup pencil
-      autocmd!
-      autocmd FileType markdown,mkd call pencil#init()
-      autocmd FileType text         call pencil#init()
-    augroup END
 
 " }}}
 

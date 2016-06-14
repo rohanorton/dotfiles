@@ -89,6 +89,11 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+
+# Default blue is pretty much unreadable on black background, change
+# zsh-syntax-highlighting to something a bit clearer for paths:
+ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

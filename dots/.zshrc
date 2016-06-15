@@ -93,6 +93,10 @@ bindkey '^Z' fancy-ctrl-z
 # Default blue is pretty much unreadable on black background, change
 # zsh-syntax-highlighting to something a bit clearer for paths:
 ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+
+# Signify command something is an alias by underlining
+ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
 
 # SOURCE AT EOF!!
 source_existing $HOME/.shell_prompt.sh

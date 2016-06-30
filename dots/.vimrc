@@ -88,6 +88,8 @@
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'terryma/vim-expand-region' " vvv
+    Plug 'kana/vim-textobj-entire' " ae ie - entire buffer object
+    Plug 'christoomey/vim-system-copy' " cp to copy to system clipboard
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

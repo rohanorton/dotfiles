@@ -89,6 +89,7 @@
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'terryma/vim-expand-region' " vvv
     Plug 'christoomey/vim-system-copy' " cp to copy to system clipboard
+    Plug 'vim-scripts/argtextobj.vim' " arguments text object
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

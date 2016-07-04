@@ -565,21 +565,6 @@
 
 " }}}
 
-" Plugin - Powerline {{{
-
-    " Source the Powerline plugin
-
-    if filereadable("/usr/local/lib/python3.5/site-packages/powerline/bindings/vim/plugin/powerline.vim")
-        source /usr/local/lib/python3.5/site-packages/powerline/bindings/vim/plugin/powerline.vim
-
-        set gfn=DejaVu\ Sans\ Mono\ for\ Powerline:h11  " Set Font
-        let g:Powerline_symbols = 'fancy'               " Allow fancy symbols
-
-        set laststatus=2                                " Prevent statusline from being hidden if no splits
-    endif
-
-" }}}
-
 " Plugin - UltisSnip {{{
 
     let g:UltiSnipsExpandTrigger        = "<Tab>"
@@ -605,13 +590,6 @@
     nnoremap <leader>\ :VimuxTogglePane<CR>
 
 " }}}
-
-" Plugin - YouCompleteMe {{{
-
-    let g:ycm_key_list_select_completion=[]
-    let g:ycm_key_list_previous_completion=[]
-
-"}}}
 
 " Misc. {{{
 

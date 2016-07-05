@@ -27,6 +27,8 @@ let g:markdown_fenced_languages=[
     \   'haskell',
     \   'hs=haskell',
     \   'elm',
+    \   'elixir',
+    \   'erlang',
     \ ]
 
 setlocal spell spelllang=en_gb

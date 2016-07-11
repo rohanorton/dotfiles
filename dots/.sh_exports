@@ -17,6 +17,11 @@ if command_exists brew; then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 
+if command_exists go; then
+    export GOPATH=$HOME/Code/go
+    export PATH=$GOPATH/bin:$PATH
+fi
+
 if command_exists cabal; then
     export PATH=$HOME/.cabal/bin:$PATH
 fi

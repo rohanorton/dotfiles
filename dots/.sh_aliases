@@ -70,6 +70,8 @@
 
     alias hg='history | grep'
 
+    alias -g NUL="> /dev/null 2>&1"
+
     # Vim version of less :)
     VIM_LESS=$(find /usr/share/vim -name 'less.sh')
     if [ ! -z $VIM_LESS ]; then
@@ -91,6 +93,11 @@
     # Kill application that is using a port
     function kill-port() {
         kill -9 `ps-on-port $1`
+    }
+
+    # easy lookup of zshell manual
+    function zman() {
+        PAGER="less -g -s '+/^       "$1"'" man zshall
     }
 
 # }}}

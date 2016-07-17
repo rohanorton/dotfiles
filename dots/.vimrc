@@ -77,7 +77,7 @@
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
     Plug 'severin-lemaignan/vim-minimap'        " Sublime style minimap
-    Plug 'elmcast/elm-vim'                      " Elm syntax etc
+    Plug 'rohanorton/elm-vim'                      " Elm syntax etc
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
     Plug 'vim-airline/vim-airline'

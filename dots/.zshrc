@@ -71,6 +71,9 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+# mass filename renaming
+autoload -U zmv
+
 source_existing `brew --prefix`/etc/profile.d/z.sh
 
 source_existing $HOME/.zsh/k/k.sh

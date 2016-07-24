@@ -92,6 +92,7 @@
     Plug 'vim-scripts/argtextobj.vim' " arguments text object
     Plug 'tacahiroy/ctrlp-funky' " function navigation with ctrl-p
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
+    Plug 'chrisbra/NrrwRgn'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

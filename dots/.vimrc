@@ -25,7 +25,7 @@
     Plug 'tpope/vim-vinegar'                    " File Manager
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
     Plug 'honza/vim-snippets'                   " Some default snippets
-    Plug 'scrooloose/syntastic'                 " Static Analysis
+    Plug 'neomake/neomake'                      " Static Analysis
     Plug 'tomtom/tcomment_vim'                  " comment and uncomment things (even works on inline code apparently)
     Plug 'tpope/vim-fugitive'                   " GIT Specific tools
     Plug 'tpope/vim-sleuth'                     " Work out indentation rules on the fly
@@ -560,6 +560,17 @@
     let g:multi_cursor_start_word_key='<C-n>'
     " if wanting standard behaviour... (like g* and g#)
     let g:multi_cursor_start_key='g<C-n>'
+
+" }}}
+
+" Plugin - NeoMake {{{
+
+    autocmd! BufEnter,BufWritePost * Neomake
+
+    let g:neomake_error_sign   = {'text': '✖', 'texthl': 'ErrorMsg'}
+    let g:neomake_warning_sign = {'text': '⚠', 'texthl': 'WarningMsg'}
+    let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+    let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 
 " }}}
 

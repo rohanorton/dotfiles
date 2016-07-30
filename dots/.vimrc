@@ -94,6 +94,8 @@
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
 
+    Plug 'tpope/vim-endwise' " auto end in ruby
+
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
         Plug 'eagletmt/neco-ghc'                " deoplete ghc completion plugin

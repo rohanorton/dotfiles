@@ -24,3 +24,5 @@ set shiftwidth=4
 set softtabstop=4
 
 nnoremap K :ElmShowDocs<CR>
+noremap _t :ElmShowInferredType<CR>
+noremap _T :ElmInsertInferredType<CR>

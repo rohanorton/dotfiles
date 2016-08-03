@@ -2,6 +2,10 @@ command_exists () {
     command -v "$1" >/dev/null;
 }
 
+directory_exists () {
+   [ -d "$1" ]
+}
+
 is_linux () {
     [[ $('uname') == 'Linux' ]];
 }
@@ -29,6 +33,11 @@ fi
 if command_exists stack; then
     export PATH=$HOME/.local/bin:$PATH
 fi
+
+if directory_exists "/Applications/Racket v6.6/bin"; then
+    export PATH="/Applications/Racket v6.6/bin":$PATH
+fi
+
 
 # Ensure the correct version of vim is used
 export EDITOR=`command -v vim`

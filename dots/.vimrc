@@ -93,6 +93,7 @@
     Plug 'tacahiroy/ctrlp-funky' " function navigation with ctrl-p
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
+    Plug 'flowtype/vim-flow'
 
     Plug 'tpope/vim-endwise' " auto end in ruby
 

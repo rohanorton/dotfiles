@@ -39,4 +39,7 @@ let g:jsx_ext_required = 0
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 0  " This do disable full signature type on autocomplete
 
+" syntax highlighting for flow
+let g:javascript_plugin_flow = 1
+
 " vim:fdm=marker

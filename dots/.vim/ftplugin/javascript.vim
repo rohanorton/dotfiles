@@ -16,12 +16,14 @@ function! s:set_javascript_checker() " {{{
     let l:linter = matchstr(getline(l:lint_comment_line_num), '.s.int')
 
     if (len(l:linter))
-        let g:syntastic_javascript_checkers = [ l:linter ]
+        let g:neomake_javascript_enabled_makers  = [ l:linter ]
+        let g:neomake_jsx_enabled_makers  = [ l:linter ]
     endif
 endfunction " }}}
 
 " Presume eslint
-let g:syntastic_javascript_checkers = ['eslint']
+let g:neomake_javascript_enabled_makers  = ['eslint', 'flow']
+let g:neomake_jsx_enabled_makers  = ['eslint', 'flow']
 
 if has("autocmd")
     augroup set_js_linter

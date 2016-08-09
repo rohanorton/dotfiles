@@ -132,6 +132,9 @@
 
     ; relative line numbers
     linum-relative
+    
+    ;; Geiser scheme
+    geiser
 
     ;; git integration
     magit))

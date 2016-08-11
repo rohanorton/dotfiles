@@ -94,6 +94,8 @@
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
     Plug 'flowtype/vim-flow'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
 
     Plug 'tpope/vim-endwise' " auto end in ruby
 

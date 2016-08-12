@@ -68,7 +68,7 @@
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
     Plug 'junegunn/vim-peekaboo'                " View contents of register
-    Plug 'bronson/vim-trailing-whitespace'      " Highlight trailing whitespace in red, or remove with FixWhitespace
+    Plug 'ntpeters/vim-better-whitespace'       " Highlight trailing whitespace in red, or remove with FixWhitespace
     Plug 'mustache/vim-mustache-handlebars'     " Mustache / Handlebars syntax etc
     Plug 'elzr/vim-json'                        " Better JSON highlighting
     Plug 'freitass/todo.txt-vim'                " Syntax etc for todo.txt
@@ -487,6 +487,10 @@
 
 " }}}
 
+" Plugin - Better Whitespace {
+    let g:better_whitespace_filetypes_blacklist=['GV']
+" }
+
 " Plugin - Ctr-P {{{
 
     " use ctrlp matcher plugin for speedier speedy speed
@@ -605,7 +609,7 @@
     let g:vim_json_syntax_conceal = 0
 
 "}}}
-"
+
 " Plugin - Vimux {{{
 
     nnoremap <leader>\ :VimuxTogglePane<CR>

@@ -97,6 +97,8 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
+    Plug 'junegunn/vim-pseudocl'
+    Plug 'junegunn/vim-oblique'
 
     Plug 'tpope/vim-endwise' " auto end in ruby
 

@@ -330,12 +330,6 @@
     nnoremap gun :GundoToggle<Cr>
 
     " Centre screen when jumping
-    nnoremap n nzz
-    nnoremap N Nzz
-    nnoremap * *zz
-    nnoremap # #zz
-    nnoremap } }zz
-    nnoremap { {zz
 
     " Move visual selection up / down
     vnoremap J :m '>+1<CR>gv=gv

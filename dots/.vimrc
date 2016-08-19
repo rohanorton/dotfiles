@@ -488,7 +488,7 @@
     let g:better_whitespace_filetypes_blacklist=['GV']
 
     "Muscle memory gets the better of me:
-    :command FixWhitespace StripWhitespace
+    :command! FixWhitespace StripWhitespace
 
 " }
 

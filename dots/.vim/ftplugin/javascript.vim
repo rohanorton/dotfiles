@@ -22,8 +22,8 @@ function! s:set_javascript_checker() " {{{
 endfunction " }}}
 
 " Presume eslint
-let g:neomake_javascript_enabled_makers  = ['eslint', 'flow']
-let g:neomake_jsx_enabled_makers  = ['eslint', 'flow']
+let g:neomake_javascript_enabled_makers  = ['eslint']
+let g:neomake_jsx_enabled_makers  = ['eslint']
 
 if has("autocmd")
     augroup set_js_linter

@@ -1,6 +1,16 @@
 #
 # This shell prompt config file was created by promptline.vim
+# with additions by rohan ;)
 #
+
+function __promptline_inbox {
+  local todo=$(task +in +PENDING count)
+  if [ $todo -gt 0 ]; then
+    printf "%s" "${todo}"
+    return
+  fi
+  return 1
+}
 
 function __promptline_last_exit_code {
 
@@ -96,6 +106,11 @@ function __promptline_left_prompt {
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "b" slices
   __promptline_wrapper "$(__promptline_cwd)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
+
+
+  slice_prefix="${warn_sep_fg}${rsep}${warn_fg}${warn_bg}${space}" slice_suffix="$space${warn_sep_fg}" slice_joiner="${warn_fg}${warn_bg}${alt_rsep}${space}" slice_empty_prefix=""
+  [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
+  __promptline_wrapper "$(__promptline_inbox)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
 
   # section "c" header
   slice_prefix="${c_bg}${sep}${c_fg}${c_bg}${space}" slice_suffix="$space${c_sep_fg}" slice_joiner="${c_fg}${c_bg}${alt_sep}${space}" slice_empty_prefix="${c_fg}${c_bg}${space}"

@@ -171,5 +171,39 @@ extract () {
     fi
 }
 
+# Task {{{
+
+    alias in='task add +in'
+
+    tickle () {
+        deadline=$1
+        shift
+        in +tickle wait:$deadline $@
+    }
+
+    delegate () {
+        task_num=$1
+        shift
+        task $task_num modify -in +waiting
+        task $task_num annotate $@
+    }
+
+    alias rnd='task add +rnd +next +@computer +@online'
+
+    webpage_title (){
+        wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
+    }
+
+    read_later (){
+        echo "Why are you not using Pocket??"
+        link="$1"
+        title=$(webpage_title $link)
+        echo $title
+        descr="\"Read and review: $title\""
+        id=$(task add +next +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+        task "$id" annotate "$link"
+    }
+
+# }}}
 
 # vim:fdm=marker ft=zsh

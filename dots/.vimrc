@@ -484,13 +484,14 @@
 
 " }}}
 
-" Plugin - Better Whitespace {
+" Plugin - Better Whitespace {{{
+
     let g:better_whitespace_filetypes_blacklist=['GV']
 
     "Muscle memory gets the better of me:
     :command! FixWhitespace StripWhitespace
 
-" }
+" }}}
 
 " Plugin - Ctr-P {{{
 

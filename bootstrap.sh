@@ -28,7 +28,11 @@ function link_dotfiles() {
     vim +PlugUpdate +qall
 
     # neovim now uses vim config :)
-    ln -s ~/.vim ~/.config/nvim
+    NVIM_CONF="$HOME/.config/nvim"
+    if [ -L "$NVIM_CONF" ]; then
+        rm $NVIM_CONF
+    fi
+    ln -s $HOME/.vim $NVIM_CONF
 }
 
 

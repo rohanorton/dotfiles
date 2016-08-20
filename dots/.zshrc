@@ -79,8 +79,10 @@ source_existing `brew --prefix`/etc/profile.d/z.sh
 source_existing $HOME/.zsh/k/k.sh
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_existing $HOME/.sh_aliases
-source_existing $HOME/.fzf.zsh
 source_existing $HOME/.shell_prompt.sh
+#
+# do not use source_existing otherwise install script keeps adding new one!!
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Default blue is pretty much unreadable on black background, change
 # zsh-syntax-highlighting to something a bit clearer for paths:

@@ -44,24 +44,11 @@ setopt correct # correct spelling
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # ignore case
 
-source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-source_existing /usr/local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-source_existing $HOME/.sh_aliases
-source_existing $HOME/.fzf.zsh
 
 # jump to previous dir :)
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
-alias 1="cd +1"
-alias 2="cd +2"
-alias 3="cd +3"
-alias 4="cd +4"
-alias 5="cd +5"
-
-source_existing $HOME/.fzf.zsh
 
 # search history with arrow keys
 autoload -U up-line-or-beginning-search
@@ -73,10 +60,6 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # mass filename renaming
 autoload -U zmv
-
-source_existing `brew --prefix`/etc/profile.d/z.sh
-
-source_existing $HOME/.zsh/k/k.sh
 
 eval "$(thefuck --alias)"
 
@@ -92,6 +75,12 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+source_existing `brew --prefix`/etc/profile.d/z.sh
+source_existing $HOME/.zsh/k/k.sh
+source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_existing $HOME/.sh_aliases
+source_existing $HOME/.fzf.zsh
+source_existing $HOME/.shell_prompt.sh
 
 # Default blue is pretty much unreadable on black background, change
 # zsh-syntax-highlighting to something a bit clearer for paths:
@@ -100,7 +89,4 @@ ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
 
 # Signify command something is an alias by underlining
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
-
-# SOURCE AT EOF!!
-source_existing $HOME/.shell_prompt.sh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

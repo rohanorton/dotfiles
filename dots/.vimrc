@@ -101,6 +101,7 @@
     Plug 'junegunn/vim-oblique'
     Plug 'tpope/vim-endwise' " auto end in ruby
     Plug 'blindFS/vim-taskwarrior' " Todo manager
+    Plug 'raichoo/purescript-vim'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

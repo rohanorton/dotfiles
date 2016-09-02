@@ -50,6 +50,16 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
+DIRSTACKSIZE=9
+DIRSTACKFILE=~/.zdirs
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
+
 # search history with arrow keys
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search

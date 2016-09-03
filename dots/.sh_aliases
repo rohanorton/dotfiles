@@ -36,6 +36,20 @@
     alias ..='cd ..'             # up one directory
     alias ...='cd ../..'         # up two directories
     alias ....='cd ../../..'     # up three directories
+
+    # up 6 goes up 6 levels:
+    up() {
+        if [[ "$#" < 1 ]] ; then
+            cd ..
+        else
+            CDSTR=""
+            for i in {1..$1} ; do
+                CDSTR="../$CDSTR"
+            done
+            cd $CDSTR
+        fi
+    }
+
     alias ls='ls --color -F'     # List dir with pretty colours and symbols
     alias l='ls'                 # Ditto
     alias ll='ls -lah'           # list long, hidden, human readable

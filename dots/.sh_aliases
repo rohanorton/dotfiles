@@ -230,4 +230,10 @@ extract () {
 
 # }}}
 
+# Extensions {{{
+
+    alias -s json='python -m json.tool'
+
+# }}}
+
 # vim:fdm=marker ft=zsh

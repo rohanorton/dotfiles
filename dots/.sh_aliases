@@ -160,6 +160,8 @@
     alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
     alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort -nr'
 
+    alias what-changed='git diff HEAD~1 HEAD'
+
 # }}}
 
 # Other Applications: {{{

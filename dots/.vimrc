@@ -20,7 +20,7 @@
 
     call plug#begin('~/.vim/plugged')
 
-    Plug 'kien/ctrlp.vim'                       " Fuzzy File Finder
+    Plug 'ctrlpvim/ctrlp.vim'                   " Fuzzy File Finder
     Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " Speed up CtrlP
     Plug 'tpope/vim-vinegar'                    " File Manager
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim

@@ -236,6 +236,11 @@ extract () {
 
     alias -s json='python -m json.tool'
 
+    # videos:
+    alias -s mpeg='mpv'
+    alias -s avi='mpv'
+    alias -s mkv='mpv'
+
 # }}}
 
 # vim:fdm=marker ft=zsh

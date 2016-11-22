@@ -38,6 +38,9 @@ if directory_exists "/Applications/Racket v6.6/bin"; then
     export PATH="/Applications/Racket v6.6/bin":$PATH
 fi
 
+if directory_exists "$HOME/.tmuxifier/bin"; then
+   export PATH="$HOME/.tmuxifier/bin:$PATH"
+fi
 
 # Ensure the correct version of vim is used
 export EDITOR=`command -v vim`

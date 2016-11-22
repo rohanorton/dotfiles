@@ -90,6 +90,9 @@ source_existing $HOME/.zsh/k/k.sh
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.shell_prompt.sh
+
+eval "$(tmuxifier init -)"
+
 #
 # do not use source_existing otherwise install script keeps adding new one!!
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

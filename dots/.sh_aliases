@@ -249,4 +249,15 @@ extract () {
 
 # }}}
 
+function encrypt() {
+ IN_FILE=$1
+ OUT_FILE="$IN_FILE.enc"
+    gpg --cipher-algo AES256 --armour --out $OUT_FILE --compress-algo zlib --symmetric $IN_FILE
+}
+
+function decrypt() {
+ IN_FILE=$1
+    gpg -d $IN_FILE
+}
+
 # vim:fdm=marker ft=zsh

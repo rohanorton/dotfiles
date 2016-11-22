@@ -102,6 +102,7 @@
     Plug 'tpope/vim-endwise' " auto end in ruby
     Plug 'blindFS/vim-taskwarrior' " Todo manager
     Plug 'raichoo/purescript-vim'
+    Plug 'idris-hackers/idris-vim'
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
 
     if has('nvim')

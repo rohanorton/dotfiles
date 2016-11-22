@@ -638,6 +638,7 @@
 
 " Misc. {{{
 
+    let g:autotagTagsFile="tags"
     let g:calendar_google_calendar = 1
 
     if has("autocmd")

@@ -175,6 +175,9 @@
     # youtube-dl appends the id of the video to the end,
     alias rename_youtube_mp3s="rename 's/-\S.*mp3/.mp3/'"
 
+    # it's useful having gnu ctags
+    alias ctags="`brew --prefix`/bin/ctags"
+
 # }}}
 
 

@@ -106,6 +106,7 @@
     Plug 'raichoo/purescript-vim'
     Plug 'idris-hackers/idris-vim'
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
+    Plug 'itchyny/calendar.vim'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -636,6 +637,8 @@
 " }}}
 
 " Misc. {{{
+
+    let g:calendar_google_calendar = 1
 
     if has("autocmd")
         augroup source_vimrc_on_save

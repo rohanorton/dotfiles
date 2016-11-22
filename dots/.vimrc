@@ -67,7 +67,6 @@
     Plug 'rodjek/vim-puppet', {'for': 'puppet'} " Puppet highlighting etc
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
-    Plug 'junegunn/vim-peekaboo'                " View contents of register
     Plug 'ntpeters/vim-better-whitespace'       " Highlight trailing whitespace in red
     Plug 'mustache/vim-mustache-handlebars'     " Mustache / Handlebars syntax etc
     Plug 'elzr/vim-json'                        " Better JSON highlighting
@@ -94,11 +93,14 @@
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
     Plug 'flowtype/vim-flow'
+    Plug 'junegunn/vim-peekaboo'                " View contents of register
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
     Plug 'junegunn/vim-pseudocl'
     Plug 'junegunn/vim-oblique'
+    Plug 'junegunn/goyo.vim' " distraction free
+    Plug 'junegunn/limelight.vim' " Focussed writing
     Plug 'tpope/vim-endwise' " auto end in ruby
     Plug 'blindFS/vim-taskwarrior' " Todo manager
     Plug 'raichoo/purescript-vim'
@@ -568,6 +570,18 @@
 
 "}}}
 
+" Plugin - Limelight {{{
+
+    " Color name (:help cterm-colors) or ANSI code
+    let g:limelight_conceal_ctermfg = 'gray'
+    let g:limelight_conceal_ctermfg = 240
+
+    " Color name (:help gui-colors) or RGB color
+    let g:limelight_conceal_guifg = 'DarkGray'
+    let g:limelight_conceal_guifg = '#777777'
+
+" }}}
+
 " Plugin - Mutliple-Cursors {{{
 
     " change default behaviour to match word (like * and # searching)
@@ -627,6 +641,12 @@
         augroup source_vimrc_on_save
             autocmd!
             autocmd bufwritepost .vimrc source $MYVIMRC
+        augroup END
+
+
+        augroup goyo_limelight_setup
+            autocmd! User GoyoEnter Limelight
+            autocmd! User GoyoLeave Limelight!
         augroup END
     endif
 

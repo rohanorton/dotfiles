@@ -4,5 +4,5 @@ if has("conceal")
     hi link elmLambda elmLambda
     hi! link Conceal elmLambda
     setlocal conceallevel=2
-    setlocal concealcursor=c
+    setlocal concealcursor=cnvi
 endif

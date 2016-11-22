@@ -162,6 +162,9 @@
 
     alias what-changed='git diff HEAD~1 HEAD'
 
+    # I have a habit of using tig even though I actually hate it
+    alias tig='vim +GV +tabonly --cmd "nnoremap q :q!<CR>"'
+
 # }}}
 
 # Other Applications: {{{

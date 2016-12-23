@@ -1,10 +1,10 @@
 [user]
-	name = Rohan Orton
-	email = rohan.orton@gmail.com
+    name = Rohan Orton
+    email = rohan.orton@gmail.com
 [color]
-	ui = true
+    ui = true
 [push]
-	default = matching
+    default = matching
 [core]
 [alias]
     fix = "!f() { vim -p `git diff --name-only`; }; f"
@@ -29,6 +29,6 @@
 [credential]
     helper = cache
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true

@@ -91,7 +91,6 @@ source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.shell_prompt.sh
 
-eval "$(tmuxifier init -)"
 
 #
 # do not use source_existing otherwise install script keeps adding new one!!

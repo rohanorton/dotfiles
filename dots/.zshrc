@@ -14,7 +14,7 @@ source_existing() {
 source_existing $HOME/.sh_exports
 
 # command completion
-autoload -U compinit
+autoload -Uz compinit
 # (brew install zsh-completions)
 fpath=(/usr/local/share/zsh-completions $fpath)
 

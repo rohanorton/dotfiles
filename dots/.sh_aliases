@@ -92,6 +92,8 @@
     alias :Wq='exit'
     alias :q='exit'
 
+    alias history='history 2'
+
     alias hg='history | grep'
 
     alias -g NUL="> /dev/null 2>&1"

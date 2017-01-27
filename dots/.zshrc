@@ -91,6 +91,8 @@ source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.shell_prompt.sh
 
+source_existing $HOME/.asdf/asdf.sh
+source_existing $HOME/.asdf/completions/asdf.bash
 
 #
 # do not use source_existing otherwise install script keeps adding new one!!

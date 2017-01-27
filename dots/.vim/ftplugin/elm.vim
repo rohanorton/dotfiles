@@ -1,8 +1,3 @@
-" Neomake makers:
-" Using https://github.com/rohanorton/elm-lint-script
-let g:neomake_elm_elm_lint_maker = { 'exe': '/usr/local/sbin/elm-lint', 'errorformat': '%f:%l:%c [%t] %m' }
-let g:neomake_elm_enabled_makers = ['elm_lint']
-
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
 let g:elm_syntastic_show_warnings = 1

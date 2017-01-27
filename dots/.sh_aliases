@@ -227,4 +227,6 @@ function decrypt() {
     gpg -d $IN_FILE
 }
 
+alias yi='stack exec yi --package yi'
+
 # vim:fdm=marker ft=zsh

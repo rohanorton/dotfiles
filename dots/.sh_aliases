@@ -229,4 +229,8 @@ function decrypt() {
 
 alias yi='stack exec yi --package yi'
 
+# OSX {{{
+    alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+# }}}
+
 # vim:fdm=marker ft=zsh

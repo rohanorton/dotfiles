@@ -27,6 +27,7 @@
     rh = reset --hard
     rh1 = reset HEAD^ --hard
     rh2 = reset HEAD^^ --hard
+    reroll = "!git checkout master && git pull origin master && git checkout - && git merge master"
 [credential]
     helper = cache
 [filter "lfs"]

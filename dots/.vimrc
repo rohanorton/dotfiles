@@ -41,7 +41,7 @@
     Plug 'tpope/vim-git'                        " Syntax, indent, and filetype plugin files for git
     Plug 'kshenoy/vim-signature'                " show line marks
     Plug 'mileszs/ack.vim'                      " Ack for vim
-    Plug 'vim-scripts/ZoomWin'                  " Toggle zoom
+    Plug 'drn/zoomwin-vim'                      " Toggle zoom
     Plug 'vim-scripts/Gundo'                    " Visualize your undo true
     Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
     Plug 'mtth/scratch.vim'                     " Unobtrusive scratch window

@@ -388,6 +388,18 @@
     noremap <leader>= yypVr=
     noremap <leader>- yypVr-
 
+    " ALTERNATE LEADER:
+    " I have my leader as \ but using <space> here as an alternative leader
+    " key (it's easier for working with capital letters)
+
+    " These commands are for wrapping selected text.
+    vnoremap <space>( "xc()<esc>"xP
+    vnoremap <space>{ "xc{}<esc>"xP
+    vnoremap <space>" "xc""<esc>"xP
+    vnoremap <space>' "xc''<esc>"xP
+    vnoremap <space>< "xc<><esc>"xP
+    vnoremap <space>[ "xc[]<esc>"xP
+
 " }}}
 
 " Spelling {{{

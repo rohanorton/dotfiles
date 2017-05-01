@@ -85,6 +85,7 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+source_existing $HOME/.nix-profile/etc/profile.d/nix.sh
 source_existing `brew --prefix`/etc/profile.d/z.sh
 source_existing $HOME/.zsh/k/k.sh
 source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

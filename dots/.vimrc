@@ -41,7 +41,6 @@
     Plug 'tpope/vim-git'                        " Syntax, indent, and filetype plugin files for git
     Plug 'kshenoy/vim-signature'                " show line marks
     Plug 'mileszs/ack.vim'                      " Ack for vim
-    Plug 'rking/ag.vim'                         " Ag for vim
     Plug 'vim-scripts/ZoomWin'                  " Toggle zoom
     Plug 'vim-scripts/Gundo'                    " Visualize your undo true
     Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
@@ -353,10 +352,13 @@
     " \a to ag / ack / grep
     if executable('ag')
         nnoremap <leader>a :Ag<space>
+        vnoremap <leader>a "xy:Ag <C-R>x<CR>
     elseif executable('ack')
         nnoremap <leader>a :Ack<space>
+        vnoremap <leader>a "xy:Ack <C-R>x<CR>
     else
         nnoremap <leader>a :grep<space>
+        vnoremap <leader>a "xy:grep <C-R>x<CR>
     endif
 
     " \wq to write quit (5 keystrokes to 3)
@@ -441,8 +443,8 @@
 " Grep / Ack / Ag {{{
 
     if executable('ag')
-        set grepprg  = "ag --vimgrep"
-        let g:ackprg = 'ag --vimgrep'
+        set grepprg="ag --vimgrep"
+        let g:ackprg='ag --vimgrep'
     elseif executable('ack')
         set grepprg="ack --nogroup --nocolor --column"
     endif

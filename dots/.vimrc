@@ -193,6 +193,7 @@
     set lazyredraw     " Don't redraw when performing macros (improves performance)
     set number         " Line numbers
     set cursorline     " Highlight current line
+    set laststatus=2   " Always show status bar
     hi cursorline cterm=none term=none
     highlight CursorLine guibg=#303000 ctermbg=234
 

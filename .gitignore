@@ -3,3 +3,4 @@
 dots/.vim/bundle/*
 !dots/.vim/bundle/Vundle.vim/
 dots/.vim/.init.vim-rplugin~
+*.pyc

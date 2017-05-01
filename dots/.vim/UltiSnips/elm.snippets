@@ -1,69 +1,15 @@
+global !p
+from elm_module_name_creator import convert_path_to_module_name
+endglobal
+
 snippet _skel "skelington" b
-module `!v snippet#Title(expand("%:t:r"))` exposing (..)
-
-import Html exposing (..)
-import Html.App as Html
-
-
-main : Program Never
-main =
-    Html.program
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
-
-
-
--- Model
-
-
-type alias Model =
-    {}
-
-
-init : ( Model, Cmd Msg )
-init =
-    {} ! []
-
-
-
--- Update
-
-
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        NoOp ->
-            model ! []
-
-
-
--- Subscriptions
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
-
-
-
--- View
-
-
-view : Model -> Html Msg
-view model =
-    text "Hello, World!"
+module `!p snip.rv = convert_path_to_module_name(path)` exposing (..)
+$0
 endsnippet
 
 
 snippet startApp "Start App" b
-import Html.App as Html
+import Html
 
 
 main : Program Never
@@ -78,7 +24,7 @@ endsnippet
 
 
 snippet mod "Module definition" b
-module ${1:`!v snippet#Title(expand("%:t:r"))`} exposing (..)
+module `!p snip.rv = convert_path_to_module_name(path)` exposing (..)
 $0
 endsnippet
 

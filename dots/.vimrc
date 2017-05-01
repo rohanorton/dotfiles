@@ -93,7 +93,7 @@
     Plug 'chrisbra/NrrwRgn'
     Plug 'flowtype/vim-flow'
     Plug 'junegunn/vim-peekaboo'                " View contents of register
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug '/usr/local/opt/fzf'                   " Installed via brew
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/gv.vim'
     Plug 'junegunn/vim-pseudocl'

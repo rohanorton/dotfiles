@@ -104,6 +104,7 @@
     Plug 'idris-hackers/idris-vim'
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
     Plug 'itchyny/calendar.vim'
+    Plug 'jparise/vim-graphql'
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -439,6 +440,9 @@
 
             " change syntax of templates...
             autocmd BufNewFile,BufRead *.tpl.html  set syntax=underscore_template
+
+            " graphql
+            autocmd BufNewFile,BufRead *.graphcool set filetype=graphql
 
             " yaml
             autocmd BufNewFile,BufRead Archfile    set filetype=yaml

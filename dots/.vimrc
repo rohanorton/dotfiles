@@ -105,6 +105,9 @@
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
     Plug 'itchyny/calendar.vim'
     Plug 'jparise/vim-graphql'
+    Plug 'prettier/vim-prettier', {
+                \ 'do': 'yarn install',
+                \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }

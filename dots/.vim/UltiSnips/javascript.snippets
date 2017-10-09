@@ -85,15 +85,15 @@ endsnippet
 # Testing stuff
 
 snippet desc "Describe block" b
-describe('$1', function () {
+describe('$1', () => {
 	$0
-});
+})
 endsnippet
 
 snippet it "It block" b
-it('$1', function ($2) {
+it('$1', ($2) => {
 	$0
-});
+})
 endsnippet
 
 # Node.js:

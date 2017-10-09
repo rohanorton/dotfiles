@@ -54,4 +54,7 @@ export GIT_EDITOR="$EDITOR +1"
 
 export PAGER='less'
 
+# Add erlang shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # vim:fdm=marker ft=zsh

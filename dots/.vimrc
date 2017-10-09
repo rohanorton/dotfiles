@@ -44,7 +44,6 @@
     Plug 'drn/zoomwin-vim'                      " Toggle zoom
     Plug 'vim-scripts/Gundo'                    " Visualize your undo true
     Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
-    Plug 'mtth/scratch.vim'                     " Unobtrusive scratch window
     Plug 'godlygeek/tabular'                    " Vim script for text filtering and alignment
     Plug 'flazz/vim-colorschemes'               " Huge collection of colourschemes
     Plug 'terryma/vim-multiple-cursors'         " Multiple selectors

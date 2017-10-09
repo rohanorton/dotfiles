@@ -398,12 +398,18 @@
     " key (it's easier for working with capital letters)
 
     " These commands are for wrapping selected text.
-    vnoremap <space>( "xc()<esc>"xP
-    vnoremap <space>{ "xc{}<esc>"xP
-    vnoremap <space>" "xc""<esc>"xP
-    vnoremap <space>' "xc''<esc>"xP
-    vnoremap <space>< "xc<><esc>"xP
-    vnoremap <space>[ "xc[]<esc>"xP
+    " we want to utilise vim-surround for this action, hence not using a
+    " noremap
+    vmap <space>( S(
+    vmap <space>) S)
+    vmap <space>{ S{
+    vmap <space>} S}
+    vmap <space>< S<
+    vmap <space>> S>
+    vmap <space>[ S[
+    vmap <space>] S]
+    vmap <space>" S"
+    vmap <space>' S'
 
 " }}}
 

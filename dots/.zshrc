@@ -95,6 +95,27 @@ source_existing $HOME/.shell_prompt.sh
 source_existing $HOME/.asdf/asdf.sh
 source_existing $HOME/.asdf/completions/asdf.bash
 
+
+# show vim status
+# http://zshwiki.org/home/examples/zlewidgets
+function zle-line-init zle-keymap-select {
+
+    if [[ $KEYMAP == "vicmd" ]]; then
+      PROMPT=$PS1_NORMAL
+    else
+      PROMPT=$PS1_INSERT
+    fi
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+# jump into vim buffer using `v`
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+# 10ms for key sequences
+KEYTIMEOUT=1
+
 #
 # do not use source_existing otherwise install script keeps adding new one!!
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -107,3 +128,7 @@ ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
 # Signify command something is an alias by underlining
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+

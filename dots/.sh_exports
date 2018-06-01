@@ -42,6 +42,15 @@ if directory_exists "$HOME/.tmuxifier/bin"; then
    export PATH="$HOME/.tmuxifier/bin:$PATH"
 fi
 
+if directory_exists "$HOME/Code/src/flutter/bin"; then
+    export PATH="$HOME/Code/src/flutter/bin":$PATH
+fi
+
+if directory_exists "$HOME/.android/platform-tools"; then
+    export PATH="$HOME/.android/platform-tools":$PATH
+fi
+
+
 # Ensure the correct version of vim is used
 export EDITOR=`command -v vim`
 export VISUAL=$EDITOR

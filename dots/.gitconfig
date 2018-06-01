@@ -8,7 +8,7 @@
 [core]
 [alias]
     fix = "!f() { vim -p `git diff --name-only`; }; f"
-    am = commit -a --amend -C HEAD 
+    am = commit -a --amend -C HEAD
     ap = add -p
     dc = diff --cached
     co = checkout

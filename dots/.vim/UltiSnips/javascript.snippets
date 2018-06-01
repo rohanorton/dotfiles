@@ -15,64 +15,14 @@ snippet shebang "SheBang!" b
 
 $0
 endsnippet
-
-snippet mocha "Mocha template" b
-/*jslint node:true*/
-/*globals describe, it, beforeEach, afterEach*/
-
-'use strict';
-
-var assert = require('assert');
-
-describe('$1', function () {
-	it('$2', function ($3) {
-		$0
-	});
-});
-endsnippet
-
-snippet jasmine "Jasmine template" b
-/*jslint node:true*/
-/*globals jasmine, expect, describe, it, beforeEach, afterEach, spyOn */
-
-'use strict';
-
-$0
-endsnippet
-
-snippet node "JSlint options" b
-/*jslint node:true*/
-
-'use strict';
-
-$0
-endsnippet
-
-snippet browser "JSlint options" b
-/*jslint browser:true*/
-/*globals console*/
-
-(function () {
-	'use strict';
-
-	${0:${VISUAL}}
-
-}());
-endsnippet
-
-# standard js stuff
-
 snippet for "Vanilla for loop" b
-var ${1:i};
-
-for ($1 = 0; $1 < ${2:thing}.length; $1 += 1) {
+for (let $1 = 0; $1 < ${2:thing}.length; $1 += 1) {
 	$0
 }
-
 endsnippet
 
 snippet keys "Iterate through object keys" b
-Object.keys(${1:${VISUAL}}).forEach(function (key) {
+Object.keys(${1:${VISUAL}}).forEach(key => {
 	$0
 });
 endsnippet
@@ -84,8 +34,14 @@ endsnippet
 
 # Testing stuff
 
-snippet desc "Describe block" b
+snippet d "Describe block" b
 describe('$1', () => {
+	$0
+})
+endsnippet
+
+snippet i "It block" b
+it('$1', ($2) => {
 	$0
 })
 endsnippet
@@ -94,12 +50,4 @@ snippet it "It block" b
 it('$1', ($2) => {
 	$0
 })
-endsnippet
-
-# Node.js:
-
-# TODO: capitalise first letter
-snippet req "Require a module in node" b
-var $1 = require('$2${1/([A-Z])/-\l$0/g}')$3;
-$0
 endsnippet

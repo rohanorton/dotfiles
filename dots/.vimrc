@@ -39,18 +39,14 @@
     Plug 'tpope/vim-bundler', {'for': 'ruby'}   " For Rails... you don't strictly need bundler, but it helps
     Plug 'tpope/vim-tbone'                      " Integrate with Tmux
     Plug 'tpope/vim-git'                        " Syntax, indent, and filetype plugin files for git
+    Plug 'tpope/vim-projectionist'
     Plug 'kshenoy/vim-signature'                " show line marks
     Plug 'mileszs/ack.vim'                      " Ack for vim
     Plug 'drn/zoomwin-vim'                      " Toggle zoom
-    Plug 'vim-scripts/Gundo'                    " Visualize your undo true
     Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
     Plug 'godlygeek/tabular'                    " Vim script for text filtering and alignment
     Plug 'flazz/vim-colorschemes'               " Huge collection of colourschemes
-    Plug 'terryma/vim-multiple-cursors'         " Multiple selectors
-    Plug 'vimoutliner/vimoutliner'              " Outlining
-    Plug 'kana/vim-vspec'                       " Vspec vim testing tools
     Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
-    Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'} " Fold markdown on section headings
     Plug 'Keithbsmiley/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
     Plug 'rust-lang/rust.vim', {'for': 'rust'}  " Rust syntax highlighting and stuff
     Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
@@ -60,9 +56,7 @@
     Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
     Plug 'mattn/emmet-vim'                      " Emmet
     Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
-    Plug 'ap/vim-css-color'                     " Display CSS colours
     Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
-    Plug 'rodjek/vim-puppet', {'for': 'puppet'} " Puppet highlighting etc
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
     Plug 'ntpeters/vim-better-whitespace'       " Highlight trailing whitespace in red
@@ -73,7 +67,6 @@
     Plug 'elixir-lang/vim-elixir'               " Syntax highlighting for elixir
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
-    Plug 'severin-lemaignan/vim-minimap'        " Sublime style minimap
     Plug 'ElmCast/elm-vim'                      " Elm syntax etc
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
@@ -86,8 +79,6 @@
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'terryma/vim-expand-region' " vvv
     Plug 'christoomey/vim-system-copy' " cp to copy to system clipboard
-    Plug 'vim-scripts/argtextobj.vim' " arguments text object
-    Plug 'tacahiroy/ctrlp-funky' " function navigation with ctrl-p
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
     Plug 'flowtype/vim-flow'
@@ -97,30 +88,37 @@
     Plug 'junegunn/gv.vim'
     Plug 'junegunn/vim-pseudocl'
     Plug 'junegunn/vim-oblique'
-    Plug 'junegunn/goyo.vim' " distraction free
     Plug 'junegunn/limelight.vim' " Focussed writing
     Plug 'tpope/vim-endwise' " auto end in ruby
     Plug 'raichoo/purescript-vim'
     Plug 'idris-hackers/idris-vim'
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
-    Plug 'itchyny/calendar.vim'
     Plug 'jparise/vim-graphql'
-    Plug 'frankier/vim-eve'
     Plug 'leafgarland/typescript-vim'
     Plug 'prettier/vim-prettier', {
                 \ 'do': 'yarn install',
                 \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
-    if has('nvim')
-        Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-        Plug 'eagletmt/neco-ghc'                " deoplete ghc completion plugin
-        Plug 'carlitux/deoplete-ternjs'         " deoplete for javascript
-        Plug 'thinca/vim-ref'
-        Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
-        Plug 'racer-rust/vim-racer'
-    else
-        Plug 'Shougo/neocomplete.vim'
-    endif
+    Plug 'vim-erlang/vim-erlang-omnicomplete'
+    Plug 'slashmili/alchemist.vim'
+    Plug 'c-brenn/phoenix.vim'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'roxma/nvim-yarp'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    Plug 'Chiel92/vim-autoformat'
+
+    " Custom text objects...
+    Plug 'kana/vim-textobj-user'
+    Plug 'vim-scripts/argtextobj.vim' " arguments text object
+    Plug 'andyl/vim-textobj-elixir'
+    Plug 'kana/vim-textobj-function'
+    Plug 'thinca/vim-localrc'
+    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
+    Plug 'xolox/vim-misc'
+    Plug 'rhysd/vim-clang-format'
+
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 
     call plug#end()
 
@@ -292,6 +290,8 @@
     map q: :q
 
     " Quickly escape using jk or kj -- can mash the keys :)
+    " Make sure to set timeoutlen to something smaller than the default
+    " otherwise this is unbearable!!
     inoremap jk <ESC>
     inoremap kj <ESC>
     vnoremap jk <ESC>
@@ -327,12 +327,6 @@
     nnoremap oo mzo<Esc>`z:delmarks z<CR>
     nnoremap OO mzO<Esc>`z:delmarks z<CR>
 
-    " easier pane navigation:
-    nnoremap <C-k> <C-w>k
-    nnoremap <C-j> <C-w>j
-    nnoremap <C-h> <C-w>h
-    nnoremap <C-l> <C-w>l
-
     " Open / close undo tree
     nnoremap gun :GundoToggle<Cr>
 
@@ -342,9 +336,13 @@
     vnoremap J :m '>+1<CR>gv=gv
     vnoremap K :m '<-2<CR>gv=gv
 
-
     " JSON prettify
     nnoremap <C-f> :%!python -m json.tool<CR>
+
+
+    " Ctrl-Space for omni-completions. Awww Yeah!
+    inoremap <C-Space> <C-x><C-o>
+    imap <C-@> <C-Space>
 
 " }}}
 
@@ -374,6 +372,12 @@
     " \q to quit
     nnoremap <leader>q :q<CR>
 
+    " \qa to quit all
+    nnoremap <leader>qa :qa<CR>
+
+    " \qq to force quit
+    nnoremap <leader>qq :q!<CR>
+
     " \w to write
     nnoremap <leader>w :w<CR>
 
@@ -392,6 +396,15 @@
     " \= and \- to underline current line
     noremap <leader>= yypVr=
     noremap <leader>- yypVr-
+
+    noremap <leader>; :
+
+    " Jump to alternate file
+    noremap <leader>. :A<CR>
+
+    " start search+replace quicker
+    nnoremap <leader>/ :%s///<left><left>
+    vnoremap <leader>/ :s///<left><left>
 
     " ALTERNATE LEADER:
     " I have my leader as \ but using <space> here as an alternative leader
@@ -443,6 +456,11 @@
             autocmd!
 
             autocmd BufNewFile,BufRead *.md        set filetype=markdown
+
+            " JSON
+            autocmd BufNewFile,BufRead .eslintrc   set filetype=json
+            autocmd BufNewFile,BufRead .babelrc    set filetype=json
+            autocmd BufNewFile,BufRead .prettierrc set filetype=json
 
             " html style templates
             autocmd BufNewFile,BufRead *.tl        set filetype=html
@@ -540,10 +558,16 @@
 
 " }}}
 
+" Plugin - Completor {{{
+
+    let g:completor_erlang_omni_trigger = '[^\s]+:[^\s]+'
+
+" }}}
+
 " Plugin - Ctr-P {{{
 
     " use ctrlp matcher plugin for speedier speedy speed
-    let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
+    " let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
 
     " show dotfiles
     let g:ctrlp_show_hidden = 1
@@ -625,6 +649,17 @@
 
 "}}}
 
+" Plugin - Language Client {{{
+
+    let g:LanguageClient_serverCommands = {
+        \ 'reason': ['ocaml-language-server', '--stdio'],
+        \ 'ocaml': ['ocaml-language-server', '--stdio'],
+        \ }
+    " Automatically start language servers.
+    let g:LanguageClient_autoStart = 1
+
+" }}}
+
 " Plugin - Limelight {{{
 
     " Color name (:help cterm-colors) or ANSI code
@@ -673,6 +708,18 @@
 
 "}}}
 
+" Plugin - Vim-Test {{{
+
+    nmap <silent> <leader>t :TestNearest<CR>
+    nmap <silent> <leader>T :TestFile<CR>
+    nmap <silent> <leader>s :TestSuite<CR>
+    nmap <silent> <leader>l :TestLast<CR>
+    nmap <silent> <leader>g :TestVisit<CR>
+
+    let test#strategy = "vimux"
+
+"}}}
+
 " Plugin - Vimux {{{
 
     nnoremap <leader>\ :VimuxTogglePane<CR>
@@ -683,6 +730,7 @@
 
     let g:autotagTagsFile="tags"
     let g:calendar_google_calendar = 1
+    let g:rustfmt_autosave = 1
 
     if has("autocmd")
         augroup source_vimrc_on_save
@@ -690,6 +738,18 @@
             autocmd bufwritepost .vimrc source $MYVIMRC
         augroup END
 
+        augroup format_on_save
+            autocmd!
+            autocmd FileType c ClangFormatAutoEnable
+        augroup END
+
+        augroup mkdir_on_write
+            autocmd!
+            autocmd BufWritePre *
+                        \ if !isdirectory(expand("<afile>:p:h")) |
+                        \ call mkdir(expand("<afile>:p:h"), "p") |
+                        \ endif
+        augroup END
 
         augroup goyo_limelight_setup
             autocmd! User GoyoEnter Limelight
@@ -698,6 +758,7 @@
     endif
 
     set timeoutlen=200
+    set title
 
 " }}}
 

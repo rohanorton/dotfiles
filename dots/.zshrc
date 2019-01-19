@@ -132,3 +132,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/serverless.zsh ]] && . /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/sls.zsh ]] && . /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/sls.zsh

@@ -19,4 +19,6 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+nnoremap <leader>p :ElmFormat<CR>
+
 nnoremap K :ElmShowDocs<CR>

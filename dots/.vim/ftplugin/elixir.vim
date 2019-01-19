@@ -20,3 +20,5 @@ augroup end
 
 map <leader><space> :w<CR>:VimuxRunCommand("clear; mix compile")<CR>
 map <leader>r :w<CR>:VimuxRunCommand("clear; iex -S mix")<CR>
+
+let g:mix_format_on_save = 1

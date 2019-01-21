@@ -33,6 +33,11 @@ function link_dotfiles() {
         rm $NVIM_CONF
     fi
     ln -s $HOME/.vim $NVIM_CONF
+
+
+    # Ensure python neovim plugin
+    pip2 install --user neovim
+    pip3 install --user neovim
 }
 
 

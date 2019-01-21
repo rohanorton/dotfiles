@@ -233,4 +233,6 @@ alias yi='stack exec yi --package yi'
     alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # }}}
 
+alias in='task add +in'
+
 # vim:fdm=marker ft=zsh

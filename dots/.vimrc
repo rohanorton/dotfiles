@@ -10,6 +10,9 @@
         scriptencoding utf-8
     endif
 
+    set exrc
+    set secure
+
 " }}}
 
 " Plugins {{{
@@ -47,15 +50,16 @@
     Plug 'godlygeek/tabular'                    " Vim script for text filtering and alignment
     Plug 'flazz/vim-colorschemes'               " Huge collection of colourschemes
     Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
-    Plug 'Keithbsmiley/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
+    Plug 'keith/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
     Plug 'rust-lang/rust.vim', {'for': 'rust'}  " Rust syntax highlighting and stuff
     Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
     Plug 'moll/vim-node'                        " Adds support for `gf` inside require('...') amongst other things
     Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
     Plug 'lukaszb/vim-web-indent', { 'for': ['html'] } " Better js and html auto indent
     Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
+    Plug 'mhinz/vim-mix-format'
     Plug 'mattn/emmet-vim'                      " Emmet
-    Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
+    " Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
     Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
@@ -67,7 +71,8 @@
     Plug 'elixir-lang/vim-elixir'               " Syntax highlighting for elixir
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
-    Plug 'ElmCast/elm-vim'                      " Elm syntax etc
+    " Plug 'ElmCast/elm-vim'                      " Elm syntax etc
+    Plug 'Zaptic/elm-vim'                      " Elm syntax etc
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
     Plug 'vim-airline/vim-airline'
@@ -89,6 +94,7 @@
     Plug 'junegunn/vim-pseudocl'
     Plug 'junegunn/vim-oblique'
     Plug 'junegunn/limelight.vim' " Focussed writing
+    Plug 'junegunn/goyo.vim'
     Plug 'tpope/vim-endwise' " auto end in ruby
     Plug 'raichoo/purescript-vim'
     Plug 'idris-hackers/idris-vim'

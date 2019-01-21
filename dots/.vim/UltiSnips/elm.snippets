@@ -2,12 +2,6 @@ global !p
 from elm_module_name_creator import convert_path_to_module_name
 endglobal
 
-snippet _skel "skelington" b
-module `!p snip.rv = convert_path_to_module_name(path)` exposing (..)
-$0
-endsnippet
-
-
 snippet startApp "Start App" b
 import Html
 
@@ -24,12 +18,12 @@ endsnippet
 
 
 snippet mod "Module definition" b
-module `!p snip.rv = convert_path_to_module_name(path)` exposing (..)
+module `!p snip.rv = convert_path_to_module_name(vim.eval('expand("%:p")'))` exposing (..)
 $0
 endsnippet
 
 snippet todo "Todo"
-Debug.crash "TODO"
+Debug.todo "${1}"
 endsnippet
 
 snippet log "Debug.log"

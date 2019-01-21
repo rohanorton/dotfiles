@@ -129,6 +129,20 @@ ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
+alias parse-config="vim ~/.config/parse-dashboard/config.json"
+
+function parse-config-setup() {
+  NODE_VERSION=$(node --version | sed 's/^v//')
+  CONFIG_PATH="$HOME/.asdf/installs/nodejs/$NODE_VERSION/.npm/lib/node_modules/parse-dashboard/Parse-Dashboard"
+
+  # Install parse-dashboard if not available
+  which parse-dashboard || npm install --global parse-dashboard
+
+  echo "Using own config"
+  ln -sf $HOME/.config/parse-dashboard/config.json $CONFIG_PATH/parse-dashboard-config.json
+  echo "Done!"
+}
+
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 

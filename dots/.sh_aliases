@@ -233,6 +233,40 @@ alias yi='stack exec yi --package yi'
     alias add-dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # }}}
 
-alias in='task add +in'
+# TaskWarrior {{{
+    alias in='task add +in'
+
+    # Add things to your tickler file
+    function tickle () {
+        deadline=$1
+        shift
+        in +tickle wait:$deadline $@
+    }
+
+    alias tick=tickle
+    
+    function waiting() {
+        n=$1
+        task $n modify -in +waiting
+        task $n annotate $@
+    }
+
+    # Need to install html-xml-utils
+    # brew install html-xml-utils
+    function webpage_title() {
+        wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
+    }
+
+    function read_and_review() {
+        link="$1"
+        title=$(webpage_title $link)
+        echo $title
+        descr="\"Read and review: $title\""
+        id=$(task add +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+        task "$id" annotate "$link"
+    }
+
+    alias rnr=read_and_review
+# }}}
 
 # vim:fdm=marker ft=zsh

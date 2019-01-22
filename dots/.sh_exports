@@ -66,4 +66,8 @@ export PAGER='less'
 # Add erlang shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# Because I don't like my man too girthy...
+# Set man page column size
+export MANWIDTH=80
+
 # vim:fdm=marker ft=zsh

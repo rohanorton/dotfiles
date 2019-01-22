@@ -36,3 +36,7 @@ report.in.filter      = status:pending limit:page (+in)
 report.in.labels      = ID,Description
 report.in.columns     = id,description
 
+weekstart=monday
+context.work=+work
+context.home=-work
+context=home

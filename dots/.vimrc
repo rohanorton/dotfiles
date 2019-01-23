@@ -59,7 +59,6 @@
     Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
     Plug 'mhinz/vim-mix-format'
     Plug 'mattn/emmet-vim'                      " Emmet
-    " Plug 'gregsexton/MatchTag',                 " Highlights the matching HTML tag
     Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
     Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
@@ -72,13 +71,16 @@
     Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
     Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
     " Plug 'ElmCast/elm-vim'                      " Elm syntax etc
-    Plug 'Zaptic/elm-vim'                      " Elm syntax etc
+    Plug 'Zaptic/elm-vim'                      " Elm syntax etc (but with better test support)
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'edkolev/promptline.vim'
-    Plug 'edkolev/tmuxline.vim'
+    " Plug 'edkolev/tmuxline.vim'   " Messes with my custom tmux prompt. Might
+                                    " remove later, but tempted to try and use
+                                    " this to do what I'm doing in
+                                    " tmux-jellybeans (probably not possible)
     Plug 'airblade/vim-gitgutter'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'christoomey/vim-tmux-navigator'
@@ -112,6 +114,7 @@
     Plug 'roxma/nvim-yarp'
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'Chiel92/vim-autoformat'
+    Plug 'blindFS/vim-taskwarrior'
 
     " Custom text objects...
     Plug 'kana/vim-textobj-user'

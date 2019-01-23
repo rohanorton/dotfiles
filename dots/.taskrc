@@ -27,7 +27,7 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-blue-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
+include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
 # Inbox
 
@@ -36,11 +36,7 @@ report.in.filter      = status:pending limit:page (+in)
 report.in.labels      = ID,Description
 report.in.columns     = id,description
 
-# Task Server
-
-taskd.certificate=~/.certs/task/private.certificate.pem
-taskd.key=~/.certs/task/private.key.pem
-taskd.ca=~/.certs/task/ca.cert.pem
-taskd.server=taskwarrior.inthe.am:53589
-taskd.credentials=inthe_am/rohan.orton/90d69b63-c8f5-4799-92d5-63b9a05f090c
-taskd.trust=ignore hostname
+weekstart=monday
+context.work=+work
+context.home=-work
+context=home

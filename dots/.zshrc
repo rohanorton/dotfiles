@@ -112,7 +112,7 @@ zle -N zle-keymap-select
 # jump into vim buffer using `v`
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M vicmd ! edit-command-line
 # 10ms for key sequences
 KEYTIMEOUT=1
 

@@ -5,3 +5,5 @@ dots/.vim/plugged/*
 !dots/.vim/bundle/Vundle.vim/
 dots/.vim/.init.vim-rplugin~
 *.pyc
+
+dots/.config/nvim/undo

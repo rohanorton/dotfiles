@@ -1,0 +1,20 @@
+{
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  },
+  "codeLens.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "html",
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact"
+  ]
+}

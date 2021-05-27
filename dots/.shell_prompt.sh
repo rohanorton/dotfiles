@@ -51,8 +51,8 @@ function __promptline_vcs_branch {
 
   # git
   if hash git 2>/dev/null; then
-    if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
-      branch=${branch##*/}
+    if branch=$( { git rev-parse --abbrev-ref HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
+      # branch=${branch##*/}
       printf "%s" "${branch_symbol}${branch:-unknown}"
       return
     fi

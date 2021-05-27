@@ -1,11 +1,17 @@
 [user]
     name = Rohan Orton
     email = rohan.orton@gmail.com
+
 [color]
     ui = true
+
 [push]
     default = matching
+
 [core]
+	excludesfile = /Users/rohan/.gitignore_global
+	editor = nvim
+
 [alias]
     fix = "!f() { vim -p `git diff --name-only`; }; f"
     am = commit -a --amend -C HEAD
@@ -14,6 +20,8 @@
     co = checkout
     cop = checkout -p
     cob = checkout -b
+    cherry = cherry-pick
+    cp = cherry-pick
     cl = clone
     st = status
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -28,9 +36,23 @@
     rh1 = reset HEAD^ --hard
     rh2 = reset HEAD^^ --hard
     reroll = "!git checkout master && git pull origin master && git checkout - && git merge master"
+
 [credential]
     helper = cache
+
 [filter "lfs"]
     clean = git lfs clean %f
     smudge = git lfs smudge %f
     required = true
+
+[merge]
+    tool = nvimdiff4
+    # if not using a tool name with builtin support, must supply mergetool cmd as below
+
+[mergetool "nvimdiff4"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[mergetool "nfugitive"]
+    cmd = nvim -f -c "Gdiff" "$MERGED"
+[pull]
+	ff = only

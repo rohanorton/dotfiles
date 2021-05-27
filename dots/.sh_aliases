@@ -137,8 +137,8 @@
 
 # Vim: {{{
 
-    # alias vi="/usr/local/bin/vim"
-    # alias vim="nvim"
+    alias vi="/usr/local/bin/vim"
+    alias vim="/usr/local/bin/nvim"
 
 #}}}
 
@@ -244,7 +244,7 @@ alias yi='stack exec yi --package yi'
     }
 
     alias tick=tickle
-    
+
     function waiting() {
         n=$1
         task $n modify -in +waiting
@@ -267,6 +267,13 @@ alias yi='stack exec yi --package yi'
     }
 
     alias rnr=read_and_review
+
+    ## Make daily task super simply
+    function daily() {
+        description="$1"
+        task add $description recur:daily due:today wait:today +in
+    }
+
 # }}}
 
 # vim:fdm=marker ft=zsh

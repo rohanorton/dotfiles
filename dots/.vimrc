@@ -1,4 +1,4 @@
-" ========================= "
+
 " Rohan's Vim Configuration "
 " ========================= "
 
@@ -23,14 +23,11 @@
 
     call plug#begin('~/.vim/plugged')
 
-    Plug 'ctrlpvim/ctrlp.vim'                   " Fuzzy File Finder
-    Plug 'JazzCore/ctrlp-cmatcher', {'do': './install.sh'} " Speed up CtrlP
     Plug 'tpope/vim-vinegar'                    " File Manager
     Plug 'SirVer/ultisnips'                     " Ultimate snippets solution for vim
     Plug 'honza/vim-snippets'                   " Some default snippets
     Plug 'w0rp/ale'                             " Async linting
     Plug 'tomtom/tcomment_vim'                  " comment and uncomment things (even works on inline code apparently)
-    Plug 'tpope/vim-fugitive'                   " GIT Specific tools
     Plug 'tpope/vim-sleuth'                     " Work out indentation rules on the fly
     Plug 'tpope/vim-repeat'                     " Enable '.' repeating with supported plugins
     Plug 'tpope/vim-surround'                   " Quoting/parenthesizing made simple
@@ -40,47 +37,18 @@
     Plug 'tpope/vim-eunuch'                     " Unix commands in vim
     Plug 'tpope/vim-rails', {'for': 'ruby'}     " Rails for vim
     Plug 'tpope/vim-bundler', {'for': 'ruby'}   " For Rails... you don't strictly need bundler, but it helps
-    Plug 'tpope/vim-tbone'                      " Integrate with Tmux
-    Plug 'tpope/vim-git'                        " Syntax, indent, and filetype plugin files for git
     Plug 'tpope/vim-projectionist'
     Plug 'kshenoy/vim-signature'                " show line marks
-    Plug 'mileszs/ack.vim'                      " Ack for vim
-    Plug 'drn/zoomwin-vim'                      " Toggle zoom
     Plug 'myusuf3/numbers.vim'                  " Intelligently toggling line numbers.
-    Plug 'godlygeek/tabular'                    " Vim script for text filtering and alignment
     Plug 'flazz/vim-colorschemes'               " Huge collection of colourschemes
-    Plug 'avakhov/vim-yaml', {'for': 'yaml'}    " YAML syntax
-    Plug 'keith/swift.vim', {'for': 'swift'} " Vim runtime files for Swift
-    Plug 'rust-lang/rust.vim', {'for': 'rust'}  " Rust syntax highlighting and stuff
-    Plug 'maksimr/vim-jsbeautify'               " JS Beautify in vim
-    Plug 'moll/vim-node'                        " Adds support for `gf` inside require('...') amongst other things
-    Plug 'marijnh/tern_for_vim', {'for': 'javascript', 'do': 'npm install'} " Javascript completion
-    Plug 'lukaszb/vim-web-indent', { 'for': ['html'] } " Better js and html auto indent
     Plug 'tristen/vim-sparkup',                 " Sparkup for vim HTML
-    Plug 'mhinz/vim-mix-format'
-    Plug 'mattn/emmet-vim'                      " Emmet
-    Plug 'aaronj1335/underscore-templates.vim'  " Underscore syntax
-    Plug 'keith/tmux.vim', {'for': 'tmux'}      " Tmux conf syntax highlighting
     Plug 'benmills/vimux'                       " Run tmux commands from vim
     Plug 'ntpeters/vim-better-whitespace'       " Highlight trailing whitespace in red
-    Plug 'mustache/vim-mustache-handlebars'     " Mustache / Handlebars syntax etc
-    Plug 'elzr/vim-json'                        " Better JSON highlighting
-    Plug 'freitass/todo.txt-vim'                " Syntax etc for todo.txt
-    Plug 'kchmck/vim-coffee-script'             " Syntax highlighting etc for coffeescript
-    Plug 'elixir-lang/vim-elixir'               " Syntax highlighting for elixir
-    Plug 'pangloss/vim-javascript'              " Syntax highlighting for javascript
-    Plug 'mxw/vim-jsx'                          " Syntax highlighting for jsx
-    " Plug 'ElmCast/elm-vim'                      " Elm syntax etc
-    Plug 'Zaptic/elm-vim'                      " Elm syntax etc (but with better test support)
     Plug 'Chiel92/vim-autoformat'               " Automatically format
     Plug 'tommcdo/vim-exchange'                 " Exchange words etc using cx
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'edkolev/promptline.vim'
-    " Plug 'edkolev/tmuxline.vim'   " Messes with my custom tmux prompt. Might
-                                    " remove later, but tempted to try and use
-                                    " this to do what I'm doing in
-                                    " tmux-jellybeans (probably not possible)
     Plug 'airblade/vim-gitgutter'
     Plug 'dhruvasagar/vim-table-mode'
     Plug 'christoomey/vim-tmux-navigator'
@@ -88,7 +56,6 @@
     Plug 'christoomey/vim-system-copy' " cp to copy to system clipboard
     Plug 'jiangmiao/auto-pairs' " auto-close stuff
     Plug 'chrisbra/NrrwRgn'
-    Plug 'flowtype/vim-flow'
     Plug 'junegunn/vim-peekaboo'                " View contents of register
     Plug '/usr/local/opt/fzf'                   " Installed via brew
     Plug 'junegunn/fzf.vim'
@@ -98,36 +65,20 @@
     Plug 'junegunn/limelight.vim' " Focussed writing
     Plug 'junegunn/goyo.vim'
     Plug 'tpope/vim-endwise' " auto end in ruby
-    Plug 'raichoo/purescript-vim'
-    Plug 'idris-hackers/idris-vim'
     Plug 'craigemery/vim-autotag' " automatically + intelligently update tags file on filesave
-    Plug 'jparise/vim-graphql'
-    Plug 'leafgarland/typescript-vim'
     Plug 'prettier/vim-prettier', {
                 \ 'do': 'yarn install',
                 \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
-
-    Plug 'vim-erlang/vim-erlang-omnicomplete'
-    Plug 'slashmili/alchemist.vim'
-    Plug 'c-brenn/phoenix.vim'
-    Plug 'roxma/vim-hug-neovim-rpc'
-    Plug 'roxma/nvim-yarp'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'Chiel92/vim-autoformat'
-    Plug 'blindFS/vim-taskwarrior'
+    Plug 'tpope/vim-fugitive'                   " GIT Specific tools
 
     " Custom text objects...
     Plug 'kana/vim-textobj-user'
     Plug 'vim-scripts/argtextobj.vim' " arguments text object
-    Plug 'andyl/vim-textobj-elixir'
     Plug 'kana/vim-textobj-function'
     Plug 'thinca/vim-localrc'
-    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
     Plug 'xolox/vim-misc'
-    Plug 'rhysd/vim-clang-format'
-
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
+    Plug 'sheerun/vim-polyglot'
 
     call plug#end()
 
@@ -204,7 +155,7 @@
     set nowrap         " Turn off line wrapping
     set lazyredraw     " Don't redraw when performing macros (improves performance)
     set number         " Line numbers
-    set cursorline     " Highlight current line
+    " set cursorline     " Highlight current line
     set laststatus=2   " Always show status bar
     hi cursorline cterm=none term=none
     highlight CursorLine guibg=#303000 ctermbg=234
@@ -353,6 +304,8 @@
     inoremap <C-Space> <C-x><C-o>
     imap <C-@> <C-Space>
 
+    nnoremap <C-p> :Files<CR>
+
 " }}}
 
 " Leader Key {{{
@@ -374,6 +327,8 @@
         nnoremap <leader>a :grep<space>
         vnoremap <leader>a "xy:grep <C-R>x<CR>
     endif
+
+    " nnoremap <Leader>p :PrettierAsync<CR>
 
     " \wq to write quit (5 keystrokes to 3)
     nnoremap <leader>wq :wq<CR>
@@ -573,39 +528,6 @@
 
 " }}}
 
-" Plugin - Ctr-P {{{
-
-    " use ctrlp matcher plugin for speedier speedy speed
-    " let g:ctrlp_match_func = { 'match' : 'matcher#cmatch' }
-
-    " show dotfiles
-    let g:ctrlp_show_hidden = 1
-
-    " follow symlinks (ignore loops)
-    let g:ctrlp_follow_symlinks = 1
-
-    if executable('ag')
-        " Use ag in CtrlP for listing files. Lightning fast and respects
-        " .gitignore
-        let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-              \ --ignore "*_bak"
-              \ --ignore "*.bak"
-              \ --ignore .git
-              \ --ignore .svn
-              \ --ignore .hg
-              \ --ignore .DS_Store
-              \ --ignore "**/*.pyc"
-              \ --ignore node_modules
-              \ -g ""'
-
-        " ag is fast enough that CtrlP doesn't need to cache
-        let g:ctrlp_use_caching = 0
-    endif
-
-
-
-" }}}
-
 " Plugin - Deoplete {{{
 
     let g:deoplete#enable_at_startup = 1
@@ -640,6 +562,8 @@
 "}}}
 
 " Plugin - FZF {{{
+
+ let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git/'"
 
  set rtp+=/usr/local/opt/fzf
 
@@ -737,6 +661,9 @@
 
 " Misc. {{{
 
+    let g:prettier#exec_cmd_async = 1
+    let g:prettier#quickfix_auto_focus = 0
+
     let g:autotagTagsFile="tags"
     let g:calendar_google_calendar = 1
     let g:rustfmt_autosave = 1
@@ -766,8 +693,10 @@
         augroup END
     endif
 
-    set timeoutlen=200
+    set timeoutlen=200 ttimeoutlen=0
     set title
+
+    command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
 
 " }}}
 

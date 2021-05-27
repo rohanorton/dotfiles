@@ -51,3 +51,19 @@ it('$1', ($2) => {
 	$0
 })
 endsnippet
+
+snippet withDb "It block" b
+it('$1', withDb(async db => {
+	$0
+}))
+endsnippet
+
+snippet copy "Eh" b
+/*
+ * Jira Ticket: $1
+ * Created Date: `! date +'%a, %d %b %Y, %I:%M:%S %p'`
+ * Author: Rohan Orton
+ * Email: rohan.orton@thedistance.co.uk
+ * Copyright (c) `! date +%Y` The Distance
+ */
+endsnippet

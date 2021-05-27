@@ -1,6 +1,7 @@
 .netrwhist
 
 dots/.vim/bundle/*
+dots/.vim/plugged/*
 !dots/.vim/bundle/Vundle.vim/
 dots/.vim/.init.vim-rplugin~
 *.pyc

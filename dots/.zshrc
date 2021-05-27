@@ -92,8 +92,8 @@ source_existing /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 source_existing $HOME/.sh_aliases
 source_existing $HOME/.shell_prompt.sh
 
-source_existing $HOME/.asdf/asdf.sh
-source_existing $HOME/.asdf/completions/asdf.bash
+source_existing $(brew --prefix asdf)/asdf.sh
+# source_existing $HOME/.asdf/completions/asdf.bash
 
 
 # show vim status
@@ -122,13 +122,12 @@ KEYTIMEOUT=1
 
 # Default blue is pretty much unreadable on black background, change
 # zsh-syntax-highlighting to something a bit clearer for paths:
-ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+# ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+# ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
 
 # Signify command something is an alias by underlining
-ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-
+# ZSH_HIGHLIGHT_STYLES[alias]='fg=green,underline'
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 alias parse-config="vim ~/.config/parse-dashboard/config.json"
 
 function parse-config-setup() {
@@ -145,11 +144,28 @@ function parse-config-setup() {
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/serverless.zsh ]] && . /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /Users/rohan/.npm/_npx/40707/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/rohan/.npm/_npx/40707/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/sls.zsh ]] && . /Volumes/Workspace/Code/personal/lambda_redirect/node_modules/tabtab/.completions/sls.zsh
+[[ -f /Users/rohan/.npm/_npx/40707/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/rohan/.npm/_npx/40707/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Volumes/Development/code/thedistance/backend-test-appurl/node_modules/tabtab/.completions/slss.zsh ]] && . /Volumes/Development/code/thedistance/backend-test-appurl/node_modules/tabtab/.completions/slss.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+## more complete git / git flow completions
+source ~/.zsh/completion/git.zsh
+source ~/.zsh/completion/git-flow.zsh
+

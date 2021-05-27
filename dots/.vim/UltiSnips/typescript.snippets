@@ -1,0 +1,16 @@
+snippet vo
+class ${1:ObjectName} {
+    private constructor(private ${2:value}: ${3:string}) {}
+
+    // Value equality
+    equals(other: $1) {
+        return this.$2 === other.$2;
+    }
+
+    // Static constructor
+    static of($2: $3) {
+        // TODO: validation.
+        return new $1($2);
+    }
+}
+endsnippet
